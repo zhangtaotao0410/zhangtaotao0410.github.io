@@ -238,6 +238,122 @@
             
               
                 
+                <a class="post-title-link" href="/2016/08/04/AS利用gradle实现src-layout分包/" itemprop="url">
+                  AS利用gradle实现src/layout分包
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Veröffentlicht am</span>
+            <time itemprop="dateCreated" datetime="2016-08-04T11:54:20+08:00" content="2016-08-04">
+              2016-08-04
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">in</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Android/" itemprop="url" rel="index">
+                    <span itemprop="name">Android</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="gradle实现layout分包"><a href="#gradle实现layout分包" class="headerlink" title="gradle实现layout分包"></a>gradle实现layout分包</h1><p>在app/build.gradle里配置</p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">sourceSets &#123;</div><div class="line">        main &#123;</div><div class="line">            jniLibs.srcDirs = [<span class="string">'libs'</span>]</div><div class="line">            res.srcDirs = [</div><div class="line">                    <span class="string">'src/main/res/layouts/fragment'</span>,</div><div class="line">                    <span class="string">'src/main/res/layouts/activity'</span>,</div><div class="line">                    <span class="string">'src/main/res/layouts/holder'</span>,</div><div class="line">                    <span class="string">'src/main/res/layouts'</span>,</div><div class="line">                    <span class="string">'src/main/res'</span>]</div><div class="line">        &#125;</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+<p>res资源文件目录如下</p>
+<p><img src="img/1.png" alt=""></p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/08/02/hello-world/" itemprop="url">
                   Hello World
                 </a>
@@ -360,13 +476,27 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">1</span>
+              <span class="site-state-item-count">2</span>
               <span class="site-state-item-name">Artikel</span>
             </a>
           </div>
 
           
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-name">Kategorien</span>
+              
+            </div>
+          
 
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-name">Tags</span>
+              </a>
+            </div>
           
 
         </nav>
