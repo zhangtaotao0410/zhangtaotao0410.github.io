@@ -175,7 +175,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            Home
+            Startseite
           </a>
         </li>
       
@@ -185,7 +185,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
-            Archives
+            Archiv
           </a>
         </li>
       
@@ -205,7 +205,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
             
-            About
+            Über
           </a>
         </li>
       
@@ -248,6 +248,119 @@
             
               
                 
+                <a class="post-title-link" href="/2016/08/11/scheme实现一个简易版scheme解释器-所谓自举/" itemprop="url">
+                  scheme实现一个简易版scheme解释器(所谓自举)
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Veröffentlicht am</span>
+            <time itemprop="dateCreated" datetime="2016-08-11T13:04:28+08:00" content="2016-08-11">
+              2016-08-11
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">in</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/scheme/" itemprop="url" rel="index">
+                    <span itemprop="name">scheme</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="scheme实现一个scheme解释器"><a href="#scheme实现一个scheme解释器" class="headerlink" title="scheme实现一个scheme解释器"></a>scheme实现一个scheme解释器</h1><figure class="highlight scheme"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div><div class="line">133</div><div class="line">134</div><div class="line">135</div><div class="line">136</div><div class="line">137</div><div class="line">138</div><div class="line">139</div><div class="line">140</div><div class="line">141</div><div class="line">142</div><div class="line">143</div><div class="line">144</div><div class="line">145</div><div class="line">146</div><div class="line">147</div><div class="line">148</div><div class="line">149</div><div class="line">150</div><div class="line">151</div><div class="line">152</div><div class="line">153</div><div class="line">154</div><div class="line">155</div><div class="line">156</div><div class="line">157</div></pre></td><td class="code"><pre><div class="line"><span class="comment">;判断一个s表达式是否是原子</span></div><div class="line">(<span class="name"><span class="builtin-name">define</span></span> atom?</div><div class="line">    (<span class="name"><span class="builtin-name">lambda</span></span> (x)</div><div class="line">        (<span class="name"><span class="builtin-name">and</span></span> (<span class="name"><span class="builtin-name">not</span></span> (<span class="name"><span class="builtin-name">pair?</span></span> x)) (<span class="name"><span class="builtin-name">not</span></span> (<span class="name"><span class="builtin-name">null?</span></span> x)))))</div><div class="line">(<span class="name"><span class="builtin-name">define</span></span> add1</div><div class="line">    (<span class="name"><span class="builtin-name">lambda</span></span> (n)</div><div class="line">        (<span class="name"><span class="builtin-name">+</span></span> n <span class="number">1</span>)))</div><div class="line">(<span class="name"><span class="builtin-name">define</span></span> sub1</div><div class="line">    (<span class="name"><span class="builtin-name">lambda</span></span> (n)</div><div class="line">        (<span class="name"><span class="builtin-name">-</span></span> n <span class="number">1</span>)))</div><div class="line"><span class="comment">;把两个表达式构建成一个键值对</span></div><div class="line">(<span class="name"><span class="builtin-name">define</span></span> build</div><div class="line">    (<span class="name"><span class="builtin-name">lambda</span></span> (s1 s2)</div><div class="line">        (<span class="name"><span class="builtin-name">cons</span></span> s1 (<span class="name"><span class="builtin-name">cons</span></span> s2 (<span class="name"><span class="builtin-name">quote</span></span> ())))))</div><div class="line"><span class="comment">;获取表达式的动作       </span></div><div class="line">(<span class="name"><span class="builtin-name">define</span></span> expression-to-action</div><div class="line">    (<span class="name"><span class="builtin-name">lambda</span></span> (e)</div><div class="line">        (<span class="name"><span class="builtin-name">cond</span></span> ((<span class="name">atom?</span> e) (<span class="name">atom-to-action</span> e))</div><div class="line">              (<span class="name"><span class="builtin-name">else</span></span> (<span class="name">list-to-action</span> e)))))</div><div class="line">(<span class="name"><span class="builtin-name">define</span></span> extend-table cons)</div><div class="line">(<span class="name"><span class="builtin-name">define</span></span> new-entry build)</div><div class="line">(<span class="name"><span class="builtin-name">define</span></span> atom-to-action</div><div class="line">    (<span class="name"><span class="builtin-name">lambda</span></span> (e)</div><div class="line">        (<span class="name"><span class="builtin-name">cond</span></span> ((<span class="name"><span class="builtin-name">number?</span></span> e) *const)</div><div class="line">              ((<span class="name"><span class="builtin-name">eq?</span></span> e <span class="literal">#t</span>) *const)</div><div class="line">              ((<span class="name"><span class="builtin-name">eq?</span></span> e <span class="literal">#f</span>) *const)</div><div class="line">              ((<span class="name"><span class="builtin-name">eq?</span></span> e (<span class="name"><span class="builtin-name">quote</span></span> cons)) *const)</div><div class="line">              ((<span class="name"><span class="builtin-name">eq?</span></span> e (<span class="name"><span class="builtin-name">quote</span></span> car)) *const)</div><div class="line">              ((<span class="name"><span class="builtin-name">eq?</span></span> e (<span class="name"><span class="builtin-name">quote</span></span> cdr)) *const)</div><div class="line">              ((<span class="name"><span class="builtin-name">eq?</span></span> e (<span class="name"><span class="builtin-name">quote</span></span> atom?) *const))</div><div class="line">              ((<span class="name"><span class="builtin-name">eq?</span></span> e (<span class="name"><span class="builtin-name">quote</span></span> null?)) *cosnt)</div><div class="line">              ((<span class="name"><span class="builtin-name">eq?</span></span> e (<span class="name"><span class="builtin-name">quote</span></span> eq?)) *const)</div><div class="line">              ((<span class="name"><span class="builtin-name">eq?</span></span> e (<span class="name"><span class="builtin-name">quote</span></span> zero?)) *const)</div><div class="line">              ((<span class="name"><span class="builtin-name">eq?</span></span> e (<span class="name"><span class="builtin-name">quote</span></span> add1)) *const)</div><div class="line">              ((<span class="name"><span class="builtin-name">eq?</span></span> e (<span class="name"><span class="builtin-name">quote</span></span> sub1)) *const)</div><div class="line">              ((<span class="name"><span class="builtin-name">eq?</span></span> e (<span class="name"><span class="builtin-name">quote</span></span> number?)) *const)</div><div class="line">              (<span class="name"><span class="builtin-name">else</span></span> *identifier))))</div><div class="line"></div><div class="line">(<span class="name"><span class="builtin-name">define</span></span> list-to-action</div><div class="line">    (<span class="name"><span class="builtin-name">lambda</span></span> (e)</div><div class="line">        (<span class="name"><span class="builtin-name">cond</span></span> ((<span class="name">atom?</span> (<span class="name"><span class="builtin-name">car</span></span> e))</div><div class="line">                  (<span class="name"><span class="builtin-name">cond</span></span> ((<span class="name"><span class="builtin-name">eq?</span></span> (<span class="name"><span class="builtin-name">quote</span></span> lambda) (<span class="name"><span class="builtin-name">car</span></span> e)) *lambda)</div><div class="line">                        ((<span class="name"><span class="builtin-name">eq?</span></span> (<span class="name"><span class="builtin-name">quote</span></span> cond) (<span class="name"><span class="builtin-name">car</span></span> e)) *cond)</div><div class="line">                        ((<span class="name"><span class="builtin-name">eq?</span></span> (<span class="name"><span class="builtin-name">quote</span></span> quote)) *quote)</div><div class="line">                        (<span class="name"><span class="builtin-name">else</span></span> *application)))</div><div class="line">               (<span class="name"><span class="builtin-name">else</span></span> *application))))</div><div class="line"></div><div class="line"></div><div class="line">(<span class="name"><span class="builtin-name">define</span></span> value</div><div class="line">    (<span class="name"><span class="builtin-name">lambda</span></span> (e)</div><div class="line">      (<span class="name">meaning</span> e (<span class="name"><span class="builtin-name">quote</span></span> ()))))</div><div class="line"></div><div class="line">(<span class="name"><span class="builtin-name">define</span></span> meaning</div><div class="line">    (<span class="name"><span class="builtin-name">lambda</span></span> (e table)</div><div class="line">        ((<span class="name">expression-to-action</span> e) e table)))</div><div class="line"></div><div class="line">(<span class="name"><span class="builtin-name">define</span></span> *const</div><div class="line">    (<span class="name"><span class="builtin-name">lambda</span></span> (e table)</div><div class="line">        (<span class="name"><span class="builtin-name">cond</span></span> ((<span class="name"><span class="builtin-name">number?</span></span> e) e)</div><div class="line">              ((<span class="name"><span class="builtin-name">eq?</span></span> e <span class="literal">#t</span>) <span class="literal">#t</span>)</div><div class="line">              ((<span class="name"><span class="builtin-name">eq?</span></span> e <span class="literal">#f</span>) <span class="literal">#f</span>)</div><div class="line">              (<span class="name"><span class="builtin-name">else</span></span> (<span class="name">build</span> (<span class="name"><span class="builtin-name">quote</span></span> primitive) e)))))</div><div class="line"></div><div class="line">(<span class="name"><span class="builtin-name">define</span></span> *identifier</div><div class="line">    (<span class="name"><span class="builtin-name">lambda</span></span> (e table)</div><div class="line">        (<span class="name">lookup-in-table</span> e table initial-table)))</div><div class="line"></div><div class="line">(<span class="name"><span class="builtin-name">define</span></span> initial-table</div><div class="line">    (<span class="name"><span class="builtin-name">lambda</span></span> (name)</div><div class="line">        (<span class="name"><span class="builtin-name">car</span></span> (<span class="name"><span class="builtin-name">quote</span></span> ()))))</div><div class="line">(<span class="name"><span class="builtin-name">define</span></span> lookup-in-table</div><div class="line">    (<span class="name"><span class="builtin-name">lambda</span></span> (e table table-f)</div><div class="line">        (<span class="name"><span class="builtin-name">cond</span></span> ((<span class="name"><span class="builtin-name">null?</span></span> table) (<span class="name">table-f</span> e))</div><div class="line">              (<span class="name"><span class="builtin-name">else</span></span> (<span class="name">lookup-in-entry</span> e (<span class="name"><span class="builtin-name">car</span></span> table) (<span class="name"><span class="builtin-name">lambda</span></span> (name)</div><div class="line">                                                          (<span class="name">lookup-in-table</span> name (<span class="name"><span class="builtin-name">cdr</span></span> table) table-f)))))))</div><div class="line">(<span class="name"><span class="builtin-name">define</span></span> lookup-in-entry</div><div class="line">    (<span class="name"><span class="builtin-name">lambda</span></span> (name entry entry-f)</div><div class="line">        (<span class="name">lookup-in-entry-help</span> name (<span class="name">first</span> entry) (<span class="name">second</span> entry) entry-f)))</div><div class="line">(<span class="name"><span class="builtin-name">define</span></span> lookup-in-entry-help</div><div class="line">    (<span class="name"><span class="builtin-name">lambda</span></span> (name names values entry-f)</div><div class="line">        (<span class="name"><span class="builtin-name">cond</span></span> ((<span class="name"><span class="builtin-name">null?</span></span> names) (<span class="name">entry-f</span> name))</div><div class="line">              ((<span class="name"><span class="builtin-name">eq?</span></span> name (<span class="name"><span class="builtin-name">car</span></span> names)) (<span class="name"><span class="builtin-name">car</span></span> values))</div><div class="line">              (<span class="name"><span class="builtin-name">else</span></span> (<span class="name">lookup-in-entry-help</span> name (<span class="name"><span class="builtin-name">cdr</span></span> names) (<span class="name"><span class="builtin-name">cdr</span></span> values) entry-f)))))</div><div class="line">(<span class="name"><span class="builtin-name">define</span></span> first</div><div class="line">    (<span class="name"><span class="builtin-name">lambda</span></span> (e)</div><div class="line">        (<span class="name"><span class="builtin-name">car</span></span> e)))</div><div class="line">(<span class="name"><span class="builtin-name">define</span></span> second</div><div class="line">    (<span class="name"><span class="builtin-name">lambda</span></span> (e)</div><div class="line">        (<span class="name"><span class="builtin-name">car</span></span> (<span class="name"><span class="builtin-name">cdr</span></span> e))))</div><div class="line">(<span class="name"><span class="builtin-name">define</span></span> third</div><div class="line">    (<span class="name"><span class="builtin-name">lambda</span></span> (e)</div><div class="line">        (<span class="name"><span class="builtin-name">car</span></span> (<span class="name"><span class="builtin-name">cdr</span></span> (<span class="name"><span class="builtin-name">cdr</span></span> e)))))</div><div class="line">(<span class="name"><span class="builtin-name">define</span></span> *quote</div><div class="line">    (<span class="name"><span class="builtin-name">lambda</span></span> (e table)</div><div class="line">        (<span class="name">second</span> e)))</div><div class="line"></div><div class="line">(<span class="name"><span class="builtin-name">define</span></span> evcon</div><div class="line">    (<span class="name"><span class="builtin-name">lambda</span></span> (lines table)</div><div class="line">        (<span class="name"><span class="builtin-name">cond</span></span> ((<span class="name">else?</span> (<span class="name">question-of</span> (<span class="name"><span class="builtin-name">car</span></span> lines))) (<span class="name">meaning</span> (<span class="name">answer-of</span> (<span class="name"><span class="builtin-name">car</span></span> lines)) table))</div><div class="line">              ((<span class="name">meaning</span> (<span class="name">question-of</span> (<span class="name"><span class="builtin-name">car</span></span> lines)) table) (<span class="name">meaning</span> (<span class="name">answer-of</span> (<span class="name"><span class="builtin-name">car</span></span> lines)) table))</div><div class="line">              (<span class="name"><span class="builtin-name">else</span></span> (<span class="name">evcon</span> (<span class="name"><span class="builtin-name">cdr</span></span> lines) table)))))</div><div class="line">(<span class="name"><span class="builtin-name">define</span></span> else?</div><div class="line">    (<span class="name"><span class="builtin-name">lambda</span></span> (e)</div><div class="line">        (<span class="name"><span class="builtin-name">cond</span></span> ((<span class="name">atom?</span> e) (<span class="name"><span class="builtin-name">eq?</span></span> e (<span class="name"><span class="builtin-name">quote</span></span> else)))</div><div class="line">              (<span class="name"><span class="builtin-name">else</span></span> <span class="literal">#f</span>))))</div><div class="line"></div><div class="line">(<span class="name"><span class="builtin-name">define</span></span> question-of first)</div><div class="line">(<span class="name"><span class="builtin-name">define</span></span> answer-of second)</div><div class="line"></div><div class="line">(<span class="name"><span class="builtin-name">define</span></span> *cond</div><div class="line">    (<span class="name"><span class="builtin-name">lambda</span></span> (e table)</div><div class="line">        (<span class="name">evcon</span> (<span class="name"><span class="builtin-name">cdr</span></span> e) table)))</div><div class="line">(<span class="name"><span class="builtin-name">define</span></span> function-of first)</div><div class="line">(<span class="name"><span class="builtin-name">define</span></span> arguments-of second)</div><div class="line">(<span class="name"><span class="builtin-name">define</span></span> function-of car)</div><div class="line">(<span class="name"><span class="builtin-name">define</span></span> arguments-of cdr)</div><div class="line">(<span class="name"><span class="builtin-name">define</span></span> evlis</div><div class="line">    (<span class="name"><span class="builtin-name">lambda</span></span> (args table)</div><div class="line">        (<span class="name"><span class="builtin-name">cond</span></span> ((<span class="name"><span class="builtin-name">null?</span></span> args) (<span class="name"><span class="builtin-name">quote</span></span> ()))</div><div class="line">              (<span class="name"><span class="builtin-name">else</span></span> (<span class="name"><span class="builtin-name">cons</span></span> (<span class="name">meaning</span> (<span class="name"><span class="builtin-name">car</span></span> args) table) (<span class="name">evlis</span> (<span class="name"><span class="builtin-name">cdr</span></span> args) table))))))</div><div class="line">(<span class="name"><span class="builtin-name">define</span></span> *application</div><div class="line">    (<span class="name"><span class="builtin-name">lambda</span></span> (e table)</div><div class="line">        (<span class="name"><span class="builtin-name">apply</span></span> (<span class="name">meaning</span> (<span class="name">function-of</span> e) table)</div><div class="line">               (<span class="name">evlis</span> (<span class="name">arguments-of</span> e) table))))</div><div class="line"></div><div class="line">(<span class="name"><span class="builtin-name">define</span></span> apply</div><div class="line">    (<span class="name"><span class="builtin-name">lambda</span></span> (fun vals)</div><div class="line">        (<span class="name"><span class="builtin-name">cond</span></span> ((<span class="name">primitive?</span> fun) (<span class="name">apply-primitive</span> (<span class="name">second</span> fun) vals))</div><div class="line">              ((<span class="name">non-primitive?</span> fun) (<span class="name">apply-closure</span> (<span class="name">second</span> fun) vals)))))</div><div class="line">(<span class="name"><span class="builtin-name">define</span></span> primitive?</div><div class="line">    (<span class="name"><span class="builtin-name">lambda</span></span> (l)</div><div class="line">        (<span class="name"><span class="builtin-name">eq?</span></span> (<span class="name">first</span> l) (<span class="name"><span class="builtin-name">quote</span></span> primitive))))</div><div class="line">(<span class="name"><span class="builtin-name">define</span></span> non-primitive?</div><div class="line">    (<span class="name"><span class="builtin-name">lambda</span></span> (l)</div><div class="line">        (<span class="name"><span class="builtin-name">eq?</span></span> (<span class="name">first</span> l) (<span class="name"><span class="builtin-name">quote</span></span> non-primitive))))</div><div class="line">(<span class="name"><span class="builtin-name">define</span></span> apply-primitive</div><div class="line">    (<span class="name"><span class="builtin-name">lambda</span></span> (name vals)</div><div class="line">        (<span class="name"><span class="builtin-name">cond</span></span> ((<span class="name"><span class="builtin-name">eq?</span></span> name (<span class="name"><span class="builtin-name">quote</span></span> cons)) (<span class="name"><span class="builtin-name">cons</span></span> (<span class="name">first</span> vals) (<span class="name">second</span> vals)))</div><div class="line">              ((<span class="name"><span class="builtin-name">eq?</span></span> name (<span class="name"><span class="builtin-name">quote</span></span> car)) (<span class="name"><span class="builtin-name">car</span></span> (<span class="name">first</span> vals)))</div><div class="line">              ((<span class="name"><span class="builtin-name">eq?</span></span> name (<span class="name"><span class="builtin-name">quote</span></span> cdr)) (<span class="name"><span class="builtin-name">cdr</span></span> (<span class="name">first</span> vals)))</div><div class="line">              ((<span class="name"><span class="builtin-name">eq?</span></span> name (<span class="name"><span class="builtin-name">quote</span></span> zero?)) (<span class="name"><span class="builtin-name">zero?</span></span> (<span class="name">first</span> vals)))</div><div class="line">              ((<span class="name"><span class="builtin-name">eq?</span></span> name (<span class="name"><span class="builtin-name">quote</span></span> add1)) (<span class="name">add1</span> (<span class="name">first</span> vals)))</div><div class="line">              ((<span class="name"><span class="builtin-name">eq?</span></span> name (<span class="name"><span class="builtin-name">quote</span></span> sub1)) (<span class="name">sub1</span> (<span class="name">first</span> vals)))</div><div class="line">              ((<span class="name"><span class="builtin-name">eq?</span></span> name (<span class="name"><span class="builtin-name">quote</span></span> null?)) (<span class="name"><span class="builtin-name">null?</span></span> (<span class="name">first</span> vals)))</div><div class="line">              ((<span class="name"><span class="builtin-name">eq?</span></span> name (<span class="name"><span class="builtin-name">quote</span></span> atom?)) (<span class="name">atom?</span> (<span class="name">first</span> vals)))</div><div class="line">              ((<span class="name"><span class="builtin-name">eq?</span></span> name (<span class="name"><span class="builtin-name">quote</span></span> number?)) (<span class="name"><span class="builtin-name">number?</span></span> (<span class="name">first</span> vals)))</div><div class="line">              ((<span class="name"><span class="builtin-name">eq?</span></span> name (<span class="name"><span class="builtin-name">quote</span></span> eq?)) (<span class="name"><span class="builtin-name">eq?</span></span> (<span class="name">first</span> vals) (<span class="name">second</span> vals))))))</div><div class="line">(<span class="name"><span class="builtin-name">define</span></span> apply-closure</div><div class="line">    (<span class="name"><span class="builtin-name">lambda</span></span> (closure vals)</div><div class="line">        (<span class="name">meaning</span> (<span class="name">body-of</span> closure) (<span class="name">extend-table</span> (<span class="name">new-entry</span> (<span class="name">formals-of</span> closure) vals) (<span class="name">table-of</span> closure)))))</div><div class="line"></div><div class="line"></div><div class="line">(<span class="name">value</span> (((<span class="name"><span class="builtin-name">lambda</span></span> (fun)</div><div class="line">              (<span class="name"><span class="builtin-name">lambda</span></span> (n)</div><div class="line">                  (<span class="name">fun</span> n)))</div><div class="line">         (<span class="name"><span class="builtin-name">lambda</span></span> (n)</div><div class="line">              (<span class="name"><span class="builtin-name">zero?</span></span> (<span class="name">add1</span> n)))) <span class="number">3</span>))</div></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/08/11/安卓编码规范文档/" itemprop="url">
                   安卓编码规范文档
                 </a>
@@ -261,7 +374,7 @@
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-o"></i>
             </span>
-            <span class="post-meta-item-text">Posted on</span>
+            <span class="post-meta-item-text">Veröffentlicht am</span>
             <time itemprop="dateCreated" datetime="2016-08-11T12:51:03+08:00" content="2016-08-11">
               2016-08-11
             </time>
@@ -273,7 +386,7 @@
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
-              <span class="post-meta-item-text">In</span>
+              <span class="post-meta-item-text">in</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
                   <a href="/categories/android/" itemprop="url" rel="index">
@@ -519,7 +632,7 @@
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-o"></i>
             </span>
-            <span class="post-meta-item-text">Posted on</span>
+            <span class="post-meta-item-text">Veröffentlicht am</span>
             <time itemprop="dateCreated" datetime="2016-08-06T18:17:20+08:00" content="2016-08-06">
               2016-08-06
             </time>
@@ -531,7 +644,7 @@
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
-              <span class="post-meta-item-text">In</span>
+              <span class="post-meta-item-text">in</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
                   <a href="/categories/scheme/" itemprop="url" rel="index">
@@ -633,7 +746,7 @@
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-o"></i>
             </span>
-            <span class="post-meta-item-text">Posted on</span>
+            <span class="post-meta-item-text">Veröffentlicht am</span>
             <time itemprop="dateCreated" datetime="2016-08-04T11:54:20+08:00" content="2016-08-04">
               2016-08-04
             </time>
@@ -645,7 +758,7 @@
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
-              <span class="post-meta-item-text">In</span>
+              <span class="post-meta-item-text">in</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
                   <a href="/categories/Android/" itemprop="url" rel="index">
@@ -749,7 +862,7 @@
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-o"></i>
             </span>
-            <span class="post-meta-item-text">Posted on</span>
+            <span class="post-meta-item-text">Veröffentlicht am</span>
             <time itemprop="dateCreated" datetime="2016-08-02T14:05:52+08:00" content="2016-08-02">
               2016-08-02
             </time>
@@ -858,8 +971,8 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">4</span>
-              <span class="site-state-item-name">posts</span>
+              <span class="site-state-item-count">5</span>
+              <span class="site-state-item-name">Artikel</span>
             </a>
           </div>
 
@@ -867,7 +980,7 @@
             <div class="site-state-item site-state-categories">
               
                 <span class="site-state-item-count">3</span>
-                <span class="site-state-item-name">categories</span>
+                <span class="site-state-item-name">Kategorien</span>
               
             </div>
           
@@ -875,8 +988,8 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">4</span>
-                <span class="site-state-item-name">tags</span>
+                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-name">Tags</span>
               </a>
             </div>
           
@@ -920,7 +1033,7 @@
 </div>
 
 <div class="powered-by">
-  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
+  Erstellt mit  <a class="theme-link" href="https://hexo.io">Hexo</a>
 </div>
 
 <div class="theme-info">
