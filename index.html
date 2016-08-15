@@ -84,15 +84,15 @@
 
 
 
-<meta name="description" content="辉格教徒、坑教教徒、coder">
+<meta name="description" content="辉格教徒、坑教教徒、coder、指令意义生成器">
 <meta property="og:type" content="website">
 <meta property="og:title" content="张逃逃'blog">
 <meta property="og:url" content="http://yoursite.com/index.html">
 <meta property="og:site_name" content="张逃逃'blog">
-<meta property="og:description" content="辉格教徒、坑教教徒、coder">
+<meta property="og:description" content="辉格教徒、坑教教徒、coder、指令意义生成器">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="张逃逃'blog">
-<meta name="twitter:description" content="辉格教徒、坑教教徒、coder">
+<meta name="twitter:description" content="辉格教徒、坑教教徒、coder、指令意义生成器">
 
 
 
@@ -328,9 +328,14 @@
       
         
           
-            <h1 id="scheme实现一个scheme解释器"><a href="#scheme实现一个scheme解释器" class="headerlink" title="scheme实现一个scheme解释器"></a>scheme实现一个scheme解释器</h1><figure class="highlight scheme"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div><div class="line">133</div><div class="line">134</div><div class="line">135</div><div class="line">136</div><div class="line">137</div><div class="line">138</div><div class="line">139</div><div class="line">140</div><div class="line">141</div><div class="line">142</div><div class="line">143</div><div class="line">144</div><div class="line">145</div><div class="line">146</div><div class="line">147</div><div class="line">148</div><div class="line">149</div><div class="line">150</div><div class="line">151</div><div class="line">152</div><div class="line">153</div><div class="line">154</div><div class="line">155</div><div class="line">156</div><div class="line">157</div></pre></td><td class="code"><pre><div class="line"><span class="comment">;判断一个s表达式是否是原子</span></div><div class="line">(<span class="name"><span class="builtin-name">define</span></span> atom?</div><div class="line">    (<span class="name"><span class="builtin-name">lambda</span></span> (x)</div><div class="line">        (<span class="name"><span class="builtin-name">and</span></span> (<span class="name"><span class="builtin-name">not</span></span> (<span class="name"><span class="builtin-name">pair?</span></span> x)) (<span class="name"><span class="builtin-name">not</span></span> (<span class="name"><span class="builtin-name">null?</span></span> x)))))</div><div class="line">(<span class="name"><span class="builtin-name">define</span></span> add1</div><div class="line">    (<span class="name"><span class="builtin-name">lambda</span></span> (n)</div><div class="line">        (<span class="name"><span class="builtin-name">+</span></span> n <span class="number">1</span>)))</div><div class="line">(<span class="name"><span class="builtin-name">define</span></span> sub1</div><div class="line">    (<span class="name"><span class="builtin-name">lambda</span></span> (n)</div><div class="line">        (<span class="name"><span class="builtin-name">-</span></span> n <span class="number">1</span>)))</div><div class="line"><span class="comment">;把两个表达式构建成一个键值对</span></div><div class="line">(<span class="name"><span class="builtin-name">define</span></span> build</div><div class="line">    (<span class="name"><span class="builtin-name">lambda</span></span> (s1 s2)</div><div class="line">        (<span class="name"><span class="builtin-name">cons</span></span> s1 (<span class="name"><span class="builtin-name">cons</span></span> s2 (<span class="name"><span class="builtin-name">quote</span></span> ())))))</div><div class="line"><span class="comment">;获取表达式的动作       </span></div><div class="line">(<span class="name"><span class="builtin-name">define</span></span> expression-to-action</div><div class="line">    (<span class="name"><span class="builtin-name">lambda</span></span> (e)</div><div class="line">        (<span class="name"><span class="builtin-name">cond</span></span> ((<span class="name">atom?</span> e) (<span class="name">atom-to-action</span> e))</div><div class="line">              (<span class="name"><span class="builtin-name">else</span></span> (<span class="name">list-to-action</span> e)))))</div><div class="line">(<span class="name"><span class="builtin-name">define</span></span> extend-table cons)</div><div class="line">(<span class="name"><span class="builtin-name">define</span></span> new-entry build)</div><div class="line">(<span class="name"><span class="builtin-name">define</span></span> atom-to-action</div><div class="line">    (<span class="name"><span class="builtin-name">lambda</span></span> (e)</div><div class="line">        (<span class="name"><span class="builtin-name">cond</span></span> ((<span class="name"><span class="builtin-name">number?</span></span> e) *const)</div><div class="line">              ((<span class="name"><span class="builtin-name">eq?</span></span> e <span class="literal">#t</span>) *const)</div><div class="line">              ((<span class="name"><span class="builtin-name">eq?</span></span> e <span class="literal">#f</span>) *const)</div><div class="line">              ((<span class="name"><span class="builtin-name">eq?</span></span> e (<span class="name"><span class="builtin-name">quote</span></span> cons)) *const)</div><div class="line">              ((<span class="name"><span class="builtin-name">eq?</span></span> e (<span class="name"><span class="builtin-name">quote</span></span> car)) *const)</div><div class="line">              ((<span class="name"><span class="builtin-name">eq?</span></span> e (<span class="name"><span class="builtin-name">quote</span></span> cdr)) *const)</div><div class="line">              ((<span class="name"><span class="builtin-name">eq?</span></span> e (<span class="name"><span class="builtin-name">quote</span></span> atom?) *const))</div><div class="line">              ((<span class="name"><span class="builtin-name">eq?</span></span> e (<span class="name"><span class="builtin-name">quote</span></span> null?)) *cosnt)</div><div class="line">              ((<span class="name"><span class="builtin-name">eq?</span></span> e (<span class="name"><span class="builtin-name">quote</span></span> eq?)) *const)</div><div class="line">              ((<span class="name"><span class="builtin-name">eq?</span></span> e (<span class="name"><span class="builtin-name">quote</span></span> zero?)) *const)</div><div class="line">              ((<span class="name"><span class="builtin-name">eq?</span></span> e (<span class="name"><span class="builtin-name">quote</span></span> add1)) *const)</div><div class="line">              ((<span class="name"><span class="builtin-name">eq?</span></span> e (<span class="name"><span class="builtin-name">quote</span></span> sub1)) *const)</div><div class="line">              ((<span class="name"><span class="builtin-name">eq?</span></span> e (<span class="name"><span class="builtin-name">quote</span></span> number?)) *const)</div><div class="line">              (<span class="name"><span class="builtin-name">else</span></span> *identifier))))</div><div class="line"></div><div class="line">(<span class="name"><span class="builtin-name">define</span></span> list-to-action</div><div class="line">    (<span class="name"><span class="builtin-name">lambda</span></span> (e)</div><div class="line">        (<span class="name"><span class="builtin-name">cond</span></span> ((<span class="name">atom?</span> (<span class="name"><span class="builtin-name">car</span></span> e))</div><div class="line">                  (<span class="name"><span class="builtin-name">cond</span></span> ((<span class="name"><span class="builtin-name">eq?</span></span> (<span class="name"><span class="builtin-name">quote</span></span> lambda) (<span class="name"><span class="builtin-name">car</span></span> e)) *lambda)</div><div class="line">                        ((<span class="name"><span class="builtin-name">eq?</span></span> (<span class="name"><span class="builtin-name">quote</span></span> cond) (<span class="name"><span class="builtin-name">car</span></span> e)) *cond)</div><div class="line">                        ((<span class="name"><span class="builtin-name">eq?</span></span> (<span class="name"><span class="builtin-name">quote</span></span> quote)) *quote)</div><div class="line">                        (<span class="name"><span class="builtin-name">else</span></span> *application)))</div><div class="line">               (<span class="name"><span class="builtin-name">else</span></span> *application))))</div><div class="line"></div><div class="line"></div><div class="line">(<span class="name"><span class="builtin-name">define</span></span> value</div><div class="line">    (<span class="name"><span class="builtin-name">lambda</span></span> (e)</div><div class="line">      (<span class="name">meaning</span> e (<span class="name"><span class="builtin-name">quote</span></span> ()))))</div><div class="line"></div><div class="line">(<span class="name"><span class="builtin-name">define</span></span> meaning</div><div class="line">    (<span class="name"><span class="builtin-name">lambda</span></span> (e table)</div><div class="line">        ((<span class="name">expression-to-action</span> e) e table)))</div><div class="line"></div><div class="line">(<span class="name"><span class="builtin-name">define</span></span> *const</div><div class="line">    (<span class="name"><span class="builtin-name">lambda</span></span> (e table)</div><div class="line">        (<span class="name"><span class="builtin-name">cond</span></span> ((<span class="name"><span class="builtin-name">number?</span></span> e) e)</div><div class="line">              ((<span class="name"><span class="builtin-name">eq?</span></span> e <span class="literal">#t</span>) <span class="literal">#t</span>)</div><div class="line">              ((<span class="name"><span class="builtin-name">eq?</span></span> e <span class="literal">#f</span>) <span class="literal">#f</span>)</div><div class="line">              (<span class="name"><span class="builtin-name">else</span></span> (<span class="name">build</span> (<span class="name"><span class="builtin-name">quote</span></span> primitive) e)))))</div><div class="line"></div><div class="line">(<span class="name"><span class="builtin-name">define</span></span> *identifier</div><div class="line">    (<span class="name"><span class="builtin-name">lambda</span></span> (e table)</div><div class="line">        (<span class="name">lookup-in-table</span> e table initial-table)))</div><div class="line"></div><div class="line">(<span class="name"><span class="builtin-name">define</span></span> initial-table</div><div class="line">    (<span class="name"><span class="builtin-name">lambda</span></span> (name)</div><div class="line">        (<span class="name"><span class="builtin-name">car</span></span> (<span class="name"><span class="builtin-name">quote</span></span> ()))))</div><div class="line">(<span class="name"><span class="builtin-name">define</span></span> lookup-in-table</div><div class="line">    (<span class="name"><span class="builtin-name">lambda</span></span> (e table table-f)</div><div class="line">        (<span class="name"><span class="builtin-name">cond</span></span> ((<span class="name"><span class="builtin-name">null?</span></span> table) (<span class="name">table-f</span> e))</div><div class="line">              (<span class="name"><span class="builtin-name">else</span></span> (<span class="name">lookup-in-entry</span> e (<span class="name"><span class="builtin-name">car</span></span> table) (<span class="name"><span class="builtin-name">lambda</span></span> (name)</div><div class="line">                                                          (<span class="name">lookup-in-table</span> name (<span class="name"><span class="builtin-name">cdr</span></span> table) table-f)))))))</div><div class="line">(<span class="name"><span class="builtin-name">define</span></span> lookup-in-entry</div><div class="line">    (<span class="name"><span class="builtin-name">lambda</span></span> (name entry entry-f)</div><div class="line">        (<span class="name">lookup-in-entry-help</span> name (<span class="name">first</span> entry) (<span class="name">second</span> entry) entry-f)))</div><div class="line">(<span class="name"><span class="builtin-name">define</span></span> lookup-in-entry-help</div><div class="line">    (<span class="name"><span class="builtin-name">lambda</span></span> (name names values entry-f)</div><div class="line">        (<span class="name"><span class="builtin-name">cond</span></span> ((<span class="name"><span class="builtin-name">null?</span></span> names) (<span class="name">entry-f</span> name))</div><div class="line">              ((<span class="name"><span class="builtin-name">eq?</span></span> name (<span class="name"><span class="builtin-name">car</span></span> names)) (<span class="name"><span class="builtin-name">car</span></span> values))</div><div class="line">              (<span class="name"><span class="builtin-name">else</span></span> (<span class="name">lookup-in-entry-help</span> name (<span class="name"><span class="builtin-name">cdr</span></span> names) (<span class="name"><span class="builtin-name">cdr</span></span> values) entry-f)))))</div><div class="line">(<span class="name"><span class="builtin-name">define</span></span> first</div><div class="line">    (<span class="name"><span class="builtin-name">lambda</span></span> (e)</div><div class="line">        (<span class="name"><span class="builtin-name">car</span></span> e)))</div><div class="line">(<span class="name"><span class="builtin-name">define</span></span> second</div><div class="line">    (<span class="name"><span class="builtin-name">lambda</span></span> (e)</div><div class="line">        (<span class="name"><span class="builtin-name">car</span></span> (<span class="name"><span class="builtin-name">cdr</span></span> e))))</div><div class="line">(<span class="name"><span class="builtin-name">define</span></span> third</div><div class="line">    (<span class="name"><span class="builtin-name">lambda</span></span> (e)</div><div class="line">        (<span class="name"><span class="builtin-name">car</span></span> (<span class="name"><span class="builtin-name">cdr</span></span> (<span class="name"><span class="builtin-name">cdr</span></span> e)))))</div><div class="line">(<span class="name"><span class="builtin-name">define</span></span> *quote</div><div class="line">    (<span class="name"><span class="builtin-name">lambda</span></span> (e table)</div><div class="line">        (<span class="name">second</span> e)))</div><div class="line"></div><div class="line">(<span class="name"><span class="builtin-name">define</span></span> evcon</div><div class="line">    (<span class="name"><span class="builtin-name">lambda</span></span> (lines table)</div><div class="line">        (<span class="name"><span class="builtin-name">cond</span></span> ((<span class="name">else?</span> (<span class="name">question-of</span> (<span class="name"><span class="builtin-name">car</span></span> lines))) (<span class="name">meaning</span> (<span class="name">answer-of</span> (<span class="name"><span class="builtin-name">car</span></span> lines)) table))</div><div class="line">              ((<span class="name">meaning</span> (<span class="name">question-of</span> (<span class="name"><span class="builtin-name">car</span></span> lines)) table) (<span class="name">meaning</span> (<span class="name">answer-of</span> (<span class="name"><span class="builtin-name">car</span></span> lines)) table))</div><div class="line">              (<span class="name"><span class="builtin-name">else</span></span> (<span class="name">evcon</span> (<span class="name"><span class="builtin-name">cdr</span></span> lines) table)))))</div><div class="line">(<span class="name"><span class="builtin-name">define</span></span> else?</div><div class="line">    (<span class="name"><span class="builtin-name">lambda</span></span> (e)</div><div class="line">        (<span class="name"><span class="builtin-name">cond</span></span> ((<span class="name">atom?</span> e) (<span class="name"><span class="builtin-name">eq?</span></span> e (<span class="name"><span class="builtin-name">quote</span></span> else)))</div><div class="line">              (<span class="name"><span class="builtin-name">else</span></span> <span class="literal">#f</span>))))</div><div class="line"></div><div class="line">(<span class="name"><span class="builtin-name">define</span></span> question-of first)</div><div class="line">(<span class="name"><span class="builtin-name">define</span></span> answer-of second)</div><div class="line"></div><div class="line">(<span class="name"><span class="builtin-name">define</span></span> *cond</div><div class="line">    (<span class="name"><span class="builtin-name">lambda</span></span> (e table)</div><div class="line">        (<span class="name">evcon</span> (<span class="name"><span class="builtin-name">cdr</span></span> e) table)))</div><div class="line">(<span class="name"><span class="builtin-name">define</span></span> function-of first)</div><div class="line">(<span class="name"><span class="builtin-name">define</span></span> arguments-of second)</div><div class="line">(<span class="name"><span class="builtin-name">define</span></span> function-of car)</div><div class="line">(<span class="name"><span class="builtin-name">define</span></span> arguments-of cdr)</div><div class="line">(<span class="name"><span class="builtin-name">define</span></span> evlis</div><div class="line">    (<span class="name"><span class="builtin-name">lambda</span></span> (args table)</div><div class="line">        (<span class="name"><span class="builtin-name">cond</span></span> ((<span class="name"><span class="builtin-name">null?</span></span> args) (<span class="name"><span class="builtin-name">quote</span></span> ()))</div><div class="line">              (<span class="name"><span class="builtin-name">else</span></span> (<span class="name"><span class="builtin-name">cons</span></span> (<span class="name">meaning</span> (<span class="name"><span class="builtin-name">car</span></span> args) table) (<span class="name">evlis</span> (<span class="name"><span class="builtin-name">cdr</span></span> args) table))))))</div><div class="line">(<span class="name"><span class="builtin-name">define</span></span> *application</div><div class="line">    (<span class="name"><span class="builtin-name">lambda</span></span> (e table)</div><div class="line">        (<span class="name"><span class="builtin-name">apply</span></span> (<span class="name">meaning</span> (<span class="name">function-of</span> e) table)</div><div class="line">               (<span class="name">evlis</span> (<span class="name">arguments-of</span> e) table))))</div><div class="line"></div><div class="line">(<span class="name"><span class="builtin-name">define</span></span> apply</div><div class="line">    (<span class="name"><span class="builtin-name">lambda</span></span> (fun vals)</div><div class="line">        (<span class="name"><span class="builtin-name">cond</span></span> ((<span class="name">primitive?</span> fun) (<span class="name">apply-primitive</span> (<span class="name">second</span> fun) vals))</div><div class="line">              ((<span class="name">non-primitive?</span> fun) (<span class="name">apply-closure</span> (<span class="name">second</span> fun) vals)))))</div><div class="line">(<span class="name"><span class="builtin-name">define</span></span> primitive?</div><div class="line">    (<span class="name"><span class="builtin-name">lambda</span></span> (l)</div><div class="line">        (<span class="name"><span class="builtin-name">eq?</span></span> (<span class="name">first</span> l) (<span class="name"><span class="builtin-name">quote</span></span> primitive))))</div><div class="line">(<span class="name"><span class="builtin-name">define</span></span> non-primitive?</div><div class="line">    (<span class="name"><span class="builtin-name">lambda</span></span> (l)</div><div class="line">        (<span class="name"><span class="builtin-name">eq?</span></span> (<span class="name">first</span> l) (<span class="name"><span class="builtin-name">quote</span></span> non-primitive))))</div><div class="line">(<span class="name"><span class="builtin-name">define</span></span> apply-primitive</div><div class="line">    (<span class="name"><span class="builtin-name">lambda</span></span> (name vals)</div><div class="line">        (<span class="name"><span class="builtin-name">cond</span></span> ((<span class="name"><span class="builtin-name">eq?</span></span> name (<span class="name"><span class="builtin-name">quote</span></span> cons)) (<span class="name"><span class="builtin-name">cons</span></span> (<span class="name">first</span> vals) (<span class="name">second</span> vals)))</div><div class="line">              ((<span class="name"><span class="builtin-name">eq?</span></span> name (<span class="name"><span class="builtin-name">quote</span></span> car)) (<span class="name"><span class="builtin-name">car</span></span> (<span class="name">first</span> vals)))</div><div class="line">              ((<span class="name"><span class="builtin-name">eq?</span></span> name (<span class="name"><span class="builtin-name">quote</span></span> cdr)) (<span class="name"><span class="builtin-name">cdr</span></span> (<span class="name">first</span> vals)))</div><div class="line">              ((<span class="name"><span class="builtin-name">eq?</span></span> name (<span class="name"><span class="builtin-name">quote</span></span> zero?)) (<span class="name"><span class="builtin-name">zero?</span></span> (<span class="name">first</span> vals)))</div><div class="line">              ((<span class="name"><span class="builtin-name">eq?</span></span> name (<span class="name"><span class="builtin-name">quote</span></span> add1)) (<span class="name">add1</span> (<span class="name">first</span> vals)))</div><div class="line">              ((<span class="name"><span class="builtin-name">eq?</span></span> name (<span class="name"><span class="builtin-name">quote</span></span> sub1)) (<span class="name">sub1</span> (<span class="name">first</span> vals)))</div><div class="line">              ((<span class="name"><span class="builtin-name">eq?</span></span> name (<span class="name"><span class="builtin-name">quote</span></span> null?)) (<span class="name"><span class="builtin-name">null?</span></span> (<span class="name">first</span> vals)))</div><div class="line">              ((<span class="name"><span class="builtin-name">eq?</span></span> name (<span class="name"><span class="builtin-name">quote</span></span> atom?)) (<span class="name">atom?</span> (<span class="name">first</span> vals)))</div><div class="line">              ((<span class="name"><span class="builtin-name">eq?</span></span> name (<span class="name"><span class="builtin-name">quote</span></span> number?)) (<span class="name"><span class="builtin-name">number?</span></span> (<span class="name">first</span> vals)))</div><div class="line">              ((<span class="name"><span class="builtin-name">eq?</span></span> name (<span class="name"><span class="builtin-name">quote</span></span> eq?)) (<span class="name"><span class="builtin-name">eq?</span></span> (<span class="name">first</span> vals) (<span class="name">second</span> vals))))))</div><div class="line">(<span class="name"><span class="builtin-name">define</span></span> apply-closure</div><div class="line">    (<span class="name"><span class="builtin-name">lambda</span></span> (closure vals)</div><div class="line">        (<span class="name">meaning</span> (<span class="name">body-of</span> closure) (<span class="name">extend-table</span> (<span class="name">new-entry</span> (<span class="name">formals-of</span> closure) vals) (<span class="name">table-of</span> closure)))))</div><div class="line"></div><div class="line"></div><div class="line">(<span class="name">value</span> (((<span class="name"><span class="builtin-name">lambda</span></span> (fun)</div><div class="line">              (<span class="name"><span class="builtin-name">lambda</span></span> (n)</div><div class="line">                  (<span class="name">fun</span> n)))</div><div class="line">         (<span class="name"><span class="builtin-name">lambda</span></span> (n)</div><div class="line">              (<span class="name"><span class="builtin-name">zero?</span></span> (<span class="name">add1</span> n)))) <span class="number">3</span>))</div></pre></td></tr></table></figure>
+          scheme实现一个scheme解释器12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667686970
+          ...
 
-          
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/08/11/scheme实现一个简易版scheme解释器-所谓自举/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
         
       
     </div>
@@ -448,154 +453,21 @@
       
         
           
-            <h1 id="安卓编码规范文档"><a href="#安卓编码规范文档" class="headerlink" title="安卓编码规范文档"></a>安卓编码规范文档</h1><blockquote>
-<h2 id="书写规范"><a href="#书写规范" class="headerlink" title="书写规范"></a>书写规范</h2></blockquote>
-<ol>
-<li><p>源文件编码格式为 UTF-8。</p>
-</li>
-<li><p>基本格式方面使用 AndroidStudio 默认模板即可（使用格式化快捷键处理后基本符合）。快捷键-Windows：CTRL+ALT+L    Mac：OPTION+COMMAND+L</p>
-</li>
-<li><p>一行声明一个变量，不要一行声明多个变量，方便注释</p>
-<p>头部单行注释</p>
-</li>
-<li><p>一个方法最多不要超过40行代码。</p>
-</li>
-<li><p>集成的适配方案要求文字大小，控件大小统一用px。</p>
-</li>
-<li><p>应用中的字符串统一在strings.xml中定义，然后在代码和布局文件中引用。</p>
-</li>
-<li><p>颜色值统一在colors.xml中定义，然后在代码和布局文件中引用。</p>
-</li>
-</ol>
-<blockquote>
-<h2 id="命名规范"><a href="#命名规范" class="headerlink" title="命名规范"></a>命名规范</h2></blockquote>
-<ol>
-<li><p>包命名</p>
-<p>域名反写+项目名称+模块名称，全部单词用小写字母。</p>
-<p>com.lecuntao.home.lecuntao.ui</p>
-</li>
-<li><p>类和接口命名</p>
-<p>使用大驼峰规则，用名词或名词词组命名，每个单词的首字母大写。</p>
-<p>以下为几种常用类的命名：</p>
-<ul>
-<li>activity类，命名以Activity为后缀，如：LoginActivity</li>
-<li>fragment类，命名以Fragment为后缀，如：ShareDialogFragment</li>
-<li>service类，命名以Service为后缀，如：DownloadService</li>
-<li>adapter类，命名以Adapter为后缀，如：CouponListAdapter</li>
-<li>工具类，命名以Util为后缀，如：StringUtil</li>
-<li>模型类，命名以BO为后缀，如：CouponBO</li>
-<li>接口实现类，命名以Impl为后缀，如：ApiImpl</li>
-<li>接口类，命名以 I 为前缀 如：IDelegate</li>
-</ul>
-</li>
-<li><p>方法命名</p>
-<p>使用小驼峰规则，用动词命名，第一个单词的首字母小写，其他单词的首字母大写。<br>以下为几种常用方法的命名：</p>
-<ul>
-<li>初始化方法，命名以init开头，例：initView</li>
-<li>设置方法，命名以set开头，例：setData</li>
-<li>具有返回值的获取方法，命名以get开头，例：getData</li>
-<li>通过异步加载数据的方法，命名以load开头，例：loadData</li>
-<li>布尔型的判断方法，命名以is或has，或具有逻辑意义的单词如equals，例：isEmpty</li>
-</ul>
-</li>
-<li><p>控件缩写</p>
-<p>| 控件           | 缩写          | 控件             | 缩写         |<br>| :———– | :———- | :————- | :——— |<br>| TextView     | txt         | EditText       | edt        |<br>| Button       | btn         | ImageButton    | ibtn       |<br>| ImageView    | img         | ListView       | listview   |<br>| RadioGroup   | radiogroup  | RadioButton    | rbtn       |<br>| ProgressBar  | progressbar | SeekBar        | seekbar    |<br>| CheckBox     | checkbox    | Spinner        | spinner    |<br>| TableLayout  | tablelayout | TableRow       | tablerow   |<br>| LinearLayout | llayout     | RelativeLayout | rlayout    |<br>| ScrollView   | scrollview  | SearchView     | searchview |<br>| FrameLayout  | flayout     |                |            |</p>
-</li>
-<li><p>常量命名</p>
-<p>全部为大写单词，单词之间用下划线分开。</p>
-<p>public static final int PAGE_SIZE = 20;</p>
-</li>
-<li><p>变量命名</p>
-<ul>
-<li>{范围描述+}意义描述+类型描述的组合(范围可选)，用小驼峰，首字母小写。</li>
-<li>（控件命名）m+{范围描述+}意义描述+类型描述的组合(范围可选)，用小驼峰，首字母小写。</li>
-</ul>
-<p>如：private Button mLoginBtn; // 登录按钮</p>
-</li>
-<li><p>控件id命名</p>
-<p>{范围}+意义+控件缩写。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">&lt;!-- 这是标题栏的标题 --&gt;</div><div class="line">&lt;TextView</div><div class="line"> android:id=<span class="string">"@+id/ac_login_header_title_txt"</span></div><div class="line"> ... /&gt;</div><div class="line">&lt;TextView</div><div class="line"> android:id=<span class="string">"@+id/fr_login_header_title_txt"</span></div><div class="line"> ... /&gt;</div><div class="line">&lt;TextView</div><div class="line"> android:id=<span class="string">"@+id/item_login_header_title_txt"</span></div><div class="line"> ... /&gt;</div><div class="line">&lt;TextView</div><div class="line"> android:id=<span class="string">"@+id/global_header_title_txt"</span></div><div class="line"> ... /&gt;</div></pre></td></tr></table></figure>
-</li>
-<li><p>layout命名</p>
-<p>组件类型+{范围}+功能，范围可选，只在有明确定义的范围内才需要加上。<br>以下为几种常用的组件类型命名：</p>
-<ul>
-<li>ac<em>{范围</em>}功能，为activity的命名格式</li>
-<li>fr<em>{范围</em>}功能，为fragment的命名格式</li>
-<li>item<em>list</em>{范围_}功能，为ListView的item命名格式</li>
-<li>header<em>list</em>{范围_}功能，为ListView的HeaderView命名格式</li>
-<li>footer<em>list</em>{范围_}功能，为ListView的FooterView命名格式</li>
-<li>全局layout布局，以glogbal为前缀</li>
-</ul>
-</li>
-</ol>
-<p>9.strings的命名</p>
-<p>类型+功能。<br>以下为几种常用的命名（公共文件，建议分层写）：</p>
-<ul>
-<li>页面标题，命名格式为：title_页面</li>
-<li>按钮文字，命名格式为：btn_按钮事件</li>
-<li>标签文字，命名格式为：label_标签文字</li>
-<li>选项卡文字，命名格式为：tab_选项卡文字</li>
-<li>消息框文字，命名格式为：toast_消息</li>
-<li>编辑框的提示文字，命名格式为：hint_提示信息</li>
-<li>图片的描述文字，命名格式为：desc_图片文字</li>
-<li>对话框的文字，命名格式为：dialog_文字</li>
-<li>menu的item文字，命名格式为：action_文字</li>
-</ul>
-<p>10.colors的命名</p>
-<p>前缀{<em>控件}{</em>范围}{后缀}，控件、范围、后缀可选，但控件和范围至少要有一个。</p>
-<ul>
-<li>背景颜色，添加bg+颜色+编号</li>
-<li>文本颜色，添加text+颜色+编号</li>
-<li>分割线颜色，添加div颜色+编号</li>
-<li>区分状态时，默认状态的颜色，添加normal后缀</li>
-<li>区分状态时，按下时的颜色，添加pressed后缀</li>
-<li>区分状态时，选中时的颜色，添加selected后缀</li>
-<li>区分状态时，不可用时的颜色，添加disable后缀</li>
-</ul>
-<p>11.drawable的命名</p>
-<p>前缀{<em>控件}{</em>范围}{_后缀}，控件、范围、后缀可选，但控件和范围至少要有一个。（所有切图放到mipmap下，drawable放自定义的文件）</p>
-<ul>
-<li>图标类，添加icon前缀</li>
-<li>背景类，添加bg前缀</li>
-<li>分隔类，添加div前缀</li>
-<li>默认类，添加def前缀</li>
-<li>区分状态时，默认状态，添加normal后缀</li>
-<li>区分状态时，按下时的状态，添加pressed后缀</li>
-<li>区分状态时，选中时的状态，添加selected后缀</li>
-<li>区分状态时，不可用时的状态，添加disable后缀</li>
-<li>多种状态的，添加selector后缀</li>
-</ul>
-<p>12.动画文件命名</p>
-<p>动画类型——动画方向</p>
-<ul>
-<li>fade_in，淡入</li>
-<li>fade_out，淡出</li>
-<li>push_down_in，从下方推入</li>
-<li>push_down_out，从下方推出</li>
-<li>slide_in_from_top，从头部滑动进入</li>
-</ul>
-<blockquote>
-<h2 id="注释规范"><a href="#注释规范" class="headerlink" title="注释规范"></a>注释规范</h2></blockquote>
-<p>1.类和接口头注释</p>
-<p>类和接口统一添加javadoc注释，格式如下：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> * Created by $&#123;USER&#125; on $&#123;DATE&#125;.</div><div class="line"> * </div><div class="line"> * 描述：(类或接口的描述信息)</div><div class="line"> */</div></pre></td></tr></table></figure>
-<p>2.方法注释</p>
-<p>下面几种方法，都必须添加javadoc注释，说明该方法的用途和参数说明，以及返回值的说明。</p>
-<ul>
-<li>接口中定义的所有方法</li>
-<li>抽象类中自定义的抽象方法</li>
-<li>抽象父类的自定义公用方法</li>
-<li>工具类的公用方法</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> * 登录</div><div class="line"> *</div><div class="line"> * <span class="doctag">@param</span> loginName 登录名</div><div class="line"> * <span class="doctag">@param</span> password  密码</div><div class="line"> * <span class="doctag">@param</span> listener  回调监听器</div><div class="line"> */</div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">login</span><span class="params">(String loginName, String password, ActionCallbackListener&lt;Void&gt; listener)</span></span>;</div></pre></td></tr></table></figure>
-<p>其他方法，用实现注释，多行注释 <figure class="highlight plain"><figcaption><span>``` ，单行注释```// ``` </span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">3.变量和常量注释</div><div class="line"></div><div class="line">下面几种情况下的常量和变量，都要添加注释说明，优先采用头部//来注释。</div><div class="line"></div><div class="line">- 接口中定义的所有常量</div><div class="line">- 公有类的公有常量</div><div class="line">- 枚举类定义的所有枚举常量</div><div class="line">- 实体类的所有属性变量</div><div class="line"></div><div class="line">```java</div><div class="line">// 现金券</div><div class="line">public static final int TYPE_CASH = 1;</div></pre></td></tr></table></figure></p>
-<p><strong>参考文档</strong></p>
-<ul>
-<li><a href="http://www.jianshu.com/p/0a984f999592" target="_blank" rel="external">Android 编码规范</a></li>
-<li><a href="http://keeganlee.me/post/android/20150709" target="_blank" rel="external">Android技术积累:开发规范</a></li>
-</ul>
+          安卓编码规范文档
+书写规范
 
-          
+源文件编码格式为 UTF-8。
+
+基本格式方面使用 AndroidStudio 默认模板即可（使用格式化快捷键处理后基本符合）。快捷键-Windows：CTRL+ALT+L    Mac：OPTION+COMMAND+L
+
+一行声明一个变量，不要一行声明多个变量，方便注
+          ...
+
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/08/11/安卓编码规范文档/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
         
       
     </div>
@@ -713,10 +585,14 @@
       
         
           
-            <h1 id="Y算子scheme代码实现"><a href="#Y算子scheme代码实现" class="headerlink" title="Y算子scheme代码实现"></a>Y算子scheme代码实现</h1><figure class="highlight scheme"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div></pre></td><td class="code"><pre><div class="line">(<span class="name"><span class="builtin-name">define</span></span> add1</div><div class="line">    (<span class="name"><span class="builtin-name">lambda</span></span> (n)</div><div class="line">        (<span class="name"><span class="builtin-name">+</span></span> n <span class="number">1</span>)))</div><div class="line"></div><div class="line"><span class="comment">;(((lambda (mk-length)</span></div><div class="line"><span class="comment">;    (mk-length mk-length))</span></div><div class="line"><span class="comment">; (lambda (mk-length)</span></div><div class="line"><span class="comment">;    (lambda (l)</span></div><div class="line"><span class="comment">;        (cond ((null? l) 0)</span></div><div class="line"><span class="comment">;              (else (add1 ((mk-length mk-length) (cdr l)))))))) (list 1 2))</span></div><div class="line"><span class="comment">;(((lambda (mk-length)</span></div><div class="line"><span class="comment">;    (mk-length mk-length))</span></div><div class="line"><span class="comment">; (lambda (mk-length)</span></div><div class="line"><span class="comment">;    ((lambda (length)</span></div><div class="line"><span class="comment">;        (lambda (l)</span></div><div class="line"><span class="comment">;            (cond ((null? l) 0)</span></div><div class="line"><span class="comment">;                  (else (add1 (length (cdr l)))))))</span></div><div class="line"><span class="comment">;     (lambda (x)</span></div><div class="line"><span class="comment">;        ((mk-length mk-length) x))))) (list 1 2 3 4 5 6))</span></div><div class="line"></div><div class="line"><span class="comment">;(((lambda (le)</span></div><div class="line"><span class="comment">;    ((lambda (mk-length)</span></div><div class="line"><span class="comment">;        (mk-length mk-length))</span></div><div class="line"><span class="comment">;    (lambda (mk-length)</span></div><div class="line"><span class="comment">;        (le (lambda (x) ((mk-length mk-length) x))))))</span></div><div class="line"><span class="comment">;  (lambda (length)</span></div><div class="line"><span class="comment">;      (lambda (l)</span></div><div class="line"><span class="comment">;          (cond ((null? l) 0)</span></div><div class="line"><span class="comment">;                (else (add1 (length (cdr l)))))))) (list 1 2 3 4 5 6 7 8 9 90))</span></div><div class="line"></div><div class="line"></div><div class="line">(<span class="name"><span class="builtin-name">define</span></span> Y</div><div class="line">    (<span class="name"><span class="builtin-name">lambda</span></span> (le)</div><div class="line">        ((<span class="name"><span class="builtin-name">lambda</span></span> (f) (<span class="name">f</span> f))</div><div class="line">         (<span class="name"><span class="builtin-name">lambda</span></span> (f)</div><div class="line">            (<span class="name">le</span> (<span class="name"><span class="builtin-name">lambda</span></span> (x) ((<span class="name">f</span> f) x)))))))</div><div class="line"></div><div class="line">((<span class="name">Y</span> (<span class="name"><span class="builtin-name">lambda</span></span> (length)</div><div class="line">           (<span class="name"><span class="builtin-name">lambda</span></span> (l)</div><div class="line">                   (<span class="name"><span class="builtin-name">cond</span></span> ((<span class="name"><span class="builtin-name">null?</span></span> l) <span class="number">0</span>)</div><div class="line">                         (<span class="name"><span class="builtin-name">else</span></span> (<span class="name">add1</span> (<span class="name"><span class="builtin-name">length</span></span> (<span class="name"><span class="builtin-name">cdr</span></span> l)))))))) (<span class="name"><span class="builtin-name">list</span></span> <span class="number">1</span> <span class="number">2</span> <span class="number">3</span> <span class="number">4</span> <span class="number">5</span> <span class="number">6</span> <span class="number">6</span>))</div></pre></td></tr></table></figure>
-<p>自己实现了一下，开熏~</p>
+          Y算子scheme代码实现1234567891011121314151617181920212223242526272829303132333435363738394041(define add1    (lambda (n)        (+ n 1)));(((lambda (mk-lengt
+          ...
 
-          
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/08/06/Y算子实现/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
         
       
     </div>
@@ -834,12 +710,15 @@
       
         
           
-            <h1 id="gradle实现layout分包"><a href="#gradle实现layout分包" class="headerlink" title="gradle实现layout分包"></a>gradle实现layout分包</h1><p>在app/build.gradle里配置</p>
-<figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">sourceSets &#123;</div><div class="line">        main &#123;</div><div class="line">            jniLibs.srcDirs = [<span class="string">'libs'</span>]</div><div class="line">            res.srcDirs = [</div><div class="line">                    <span class="string">'src/main/res/layouts/fragment'</span>,</div><div class="line">                    <span class="string">'src/main/res/layouts/activity'</span>,</div><div class="line">                    <span class="string">'src/main/res/layouts/holder'</span>,</div><div class="line">                    <span class="string">'src/main/res/layouts'</span>,</div><div class="line">                    <span class="string">'src/main/res'</span>]</div><div class="line">        &#125;</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
-<p>res资源文件目录如下</p>
-<p><img src="https://raw.githubusercontent.com/zhangtaotao0410/picture/master/1.png" alt=""></p>
+          gradle实现layout分包在app/build.gradle里配置
+1234567891011sourceSets &#123;        main &#123;            jniLibs.srcDirs = ['libs']            res.srcDirs = 
+          ...
 
-          
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/08/04/AS利用gradle实现src-layout分包/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
         
       
     </div>
@@ -938,17 +817,14 @@
       
         
           
-            <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
+          Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in 
+          ...
 
-          
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/08/02/hello-world/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
         
       
     </div>
@@ -1011,7 +887,7 @@
                src="/uploads/avatar.jpg"
                alt="张逃逃" />
           <p class="site-author-name" itemprop="name">张逃逃</p>
-          <p class="site-description motion-element" itemprop="description">辉格教徒、坑教教徒、coder</p>
+          <p class="site-description motion-element" itemprop="description">辉格教徒、坑教教徒、coder、指令意义生成器</p>
         </div>
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
@@ -1044,6 +920,44 @@
         
 
         <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/zhangtaotao0410" target="_blank" title="github">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  github
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://twitter.com/zhangtaotaotao" target="_blank" title="twitter">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  twitter
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.weibo.com/u/3246165561/home?wvr=5" target="_blank" title="weibo">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  weibo
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.douban.com/people/67863553/" target="_blank" title="douban">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  douban
+                </a>
+              </span>
+            
           
         </div>
 
