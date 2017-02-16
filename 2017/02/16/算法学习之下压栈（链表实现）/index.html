@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="AS,gradle," />
+  <meta name="keywords" content="Hexo, NexT" />
 
 
 
@@ -84,18 +84,25 @@
 
 
 
-<meta name="description" content="gradle实现layout分包">
+<meta name="description" content="需求：链表是一种递归的数据结构，它或者为空(null)，或者指向一个节点(node)的引用，该节点含有一个泛型元素和一个指向另一条链表的引用。
+1234public class Node &amp;#123;  	public Item item;  	public Node next;&amp;#125;
+链表实现：
+123456789101112131415161718192021222324252627pu">
 <meta property="og:type" content="article">
-<meta property="og:title" content="AS利用gradle实现src/layout分包">
-<meta property="og:url" content="http://yoursite.com/2016/08/04/AS利用gradle实现src-layout分包/index.html">
+<meta property="og:title" content="算法学习之下压栈（链表实现）">
+<meta property="og:url" content="http://yoursite.com/2017/02/16/算法学习之下压栈（链表实现）/index.html">
 <meta property="og:site_name" content="张逃逃'blog">
-<meta property="og:description" content="gradle实现layout分包">
-<meta property="og:image" content="https://raw.githubusercontent.com/zhangtaotao0410/picture/master/1.png">
-<meta property="og:updated_time" content="2016-08-15T14:40:39.000Z">
+<meta property="og:description" content="需求：链表是一种递归的数据结构，它或者为空(null)，或者指向一个节点(node)的引用，该节点含有一个泛型元素和一个指向另一条链表的引用。
+1234public class Node &amp;#123;  	public Item item;  	public Node next;&amp;#125;
+链表实现：
+123456789101112131415161718192021222324252627pu">
+<meta property="og:updated_time" content="2017-02-16T07:03:57.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="AS利用gradle实现src/layout分包">
-<meta name="twitter:description" content="gradle实现layout分包">
-<meta name="twitter:image" content="https://raw.githubusercontent.com/zhangtaotao0410/picture/master/1.png">
+<meta name="twitter:title" content="算法学习之下压栈（链表实现）">
+<meta name="twitter:description" content="需求：链表是一种递归的数据结构，它或者为空(null)，或者指向一个节点(node)的引用，该节点含有一个泛型元素和一个指向另一条链表的引用。
+1234public class Node &amp;#123;  	public Item item;  	public Node next;&amp;#125;
+链表实现：
+123456789101112131415161718192021222324252627pu">
 
 
 
@@ -116,9 +123,9 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2016/08/04/AS利用gradle实现src-layout分包/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/02/16/算法学习之下压栈（链表实现）/"/>
 
-  <title> AS利用gradle实现src/layout分包 | 张逃逃'blog </title>
+  <title> 算法学习之下压栈（链表实现） | 张逃逃'blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -258,7 +265,7 @@
             
             
               
-                AS利用gradle实现src/layout分包
+                算法学习之下压栈（链表实现）
               
             
           </h1>
@@ -270,8 +277,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-08-04T11:54:20+08:00" content="2016-08-04">
-              2016-08-04
+            <time itemprop="dateCreated" datetime="2017-02-16T15:03:28+08:00" content="2017-02-16">
+              2017-02-16
             </time>
           </span>
 
@@ -284,8 +291,8 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Android/" itemprop="url" rel="index">
-                    <span itemprop="name">Android</span>
+                  <a href="/categories/算法/" itemprop="url" rel="index">
+                    <span itemprop="name">算法</span>
                   </a>
                 </span>
 
@@ -300,8 +307,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/08/04/AS利用gradle实现src-layout分包/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/04/AS利用gradle实现src-layout分包/" itemprop="commentsCount"></span>
+                <a href="/2017/02/16/算法学习之下压栈（链表实现）/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/02/16/算法学习之下压栈（链表实现）/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -324,11 +331,10 @@
       
 
       
-        <h1 id="gradle实现layout分包"><a href="#gradle实现layout分包" class="headerlink" title="gradle实现layout分包"></a>gradle实现layout分包</h1><a id="more"></a>
-<p>在app/build.gradle里配置</p>
-<figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">sourceSets &#123;</div><div class="line">        main &#123;</div><div class="line">            jniLibs.srcDirs = [<span class="string">'libs'</span>]</div><div class="line">            res.srcDirs = [</div><div class="line">                    <span class="string">'src/main/res/layouts/fragment'</span>,</div><div class="line">                    <span class="string">'src/main/res/layouts/activity'</span>,</div><div class="line">                    <span class="string">'src/main/res/layouts/holder'</span>,</div><div class="line">                    <span class="string">'src/main/res/layouts'</span>,</div><div class="line">                    <span class="string">'src/main/res'</span>]</div><div class="line">        &#125;</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
-<p>res资源文件目录如下</p>
-<p><img src="https://raw.githubusercontent.com/zhangtaotao0410/picture/master/1.png" alt=""></p>
+        <p>需求：链表是一种递归的数据结构，它或者为空(null)，或者指向一个节点(node)的引用，该节点含有一个泛型元素和一个指向另一条链表的引用。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Node</span> </span>&#123;</div><div class="line">  	<span class="keyword">public</span> Item item;</div><div class="line">  	<span class="keyword">public</span> Node next;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>链表实现：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Stack</span>&lt;<span class="title">Item</span>&gt;</span>&#123;</div><div class="line">  	<span class="keyword">private</span> <span class="keyword">int</span> N;</div><div class="line">  	<span class="keyword">private</span> Node first;</div><div class="line">  	<span class="keyword">private</span> <span class="class"><span class="keyword">class</span> <span class="title">Node</span></span>&#123;</div><div class="line">      	Item item;</div><div class="line">      	Node next;</div><div class="line">  	&#125;</div><div class="line">  	<span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isEmpty</span><span class="params">()</span></span>&#123;</div><div class="line">      	<span class="keyword">return</span> N == <span class="number">0</span>;</div><div class="line">  	&#125;</div><div class="line">  	<span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">size</span><span class="params">()</span></span>&#123;</div><div class="line">      	<span class="keyword">return</span> N;</div><div class="line">  	&#125;</div><div class="line">  	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">push</span><span class="params">(Item item)</span></span>&#123;</div><div class="line">      	Node oldfirst = first;</div><div class="line">      	first = <span class="keyword">new</span> Node();</div><div class="line">     	first.item = item;</div><div class="line">      	first.next = oldfirst;</div><div class="line">      	N++;</div><div class="line">  	&#125;</div><div class="line">  	<span class="function"><span class="keyword">public</span> Item <span class="title">pop</span><span class="params">()</span></span>&#123;</div><div class="line">      	Item item = first.item;</div><div class="line">      	first = first.next;</div><div class="line">      	N--;</div><div class="line">      	<span class="keyword">return</span> item;</div><div class="line">  	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 
       
     </div>
@@ -349,30 +355,18 @@
 
     <footer class="post-footer">
       
-        <div class="post-tags">
-          
-            <a href="/tags/AS/" rel="tag">#AS</a>
-          
-            <a href="/tags/gradle/" rel="tag">#gradle</a>
-          
-        </div>
-      
 
       
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/08/02/hello-world/" rel="next" title="Hello World">
-                <i class="fa fa-chevron-left"></i> Hello World
+              <a href="/2017/02/16/算法学习之下压栈/" rel="next" title="算法学习之下压栈">
+                <i class="fa fa-chevron-left"></i> 算法学习之下压栈
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/08/06/Y算子实现/" rel="prev" title="Y算子实现">
-                Y算子实现 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -387,10 +381,10 @@
 
     <div class="post-spread">
       
-        <div class="ds-share flat" data-thread-key="2016/08/04/AS利用gradle实现src-layout分包/"
-     data-title="AS利用gradle实现src/layout分包"
+        <div class="ds-share flat" data-thread-key="2017/02/16/算法学习之下压栈（链表实现）/"
+     data-title="算法学习之下压栈（链表实现）"
      data-content=""
-     data-url="http://yoursite.com/2016/08/04/AS利用gradle实现src-layout分包/">
+     data-url="http://yoursite.com/2017/02/16/算法学习之下压栈（链表实现）/">
   <div class="ds-share-inline">
     <ul  class="ds-share-icons-16">
 
@@ -417,8 +411,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/08/04/AS利用gradle实现src-layout分包/"
-           data-title="AS利用gradle实现src/layout分包" data-url="http://yoursite.com/2016/08/04/AS利用gradle实现src-layout分包/">
+      <div class="ds-thread" data-thread-key="2017/02/16/算法学习之下压栈（链表实现）/"
+           data-title="算法学习之下压栈（链表实现）" data-url="http://yoursite.com/2017/02/16/算法学习之下压栈（链表实现）/">
       </div>
     
   </div>
@@ -561,7 +555,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#gradle实现layout分包"><span class="nav-number">1.</span> <span class="nav-text">gradle实现layout分包</span></a></li></ol></div>
+              <p class="post-toc-empty">此文章未包含目录</p>
             
           </div>
         </section>
