@@ -258,6 +258,128 @@
             
               
                 
+                <a class="post-title-link" href="/2017/02/16/算法学习之下压栈/" itemprop="url">
+                  算法学习之下压栈
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-02-16T15:00:15+08:00" content="2017-02-16">
+              2017-02-16
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/算法/" itemprop="url" rel="index">
+                    <span itemprop="name">算法</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2017/02/16/算法学习之下压栈/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/02/16/算法学习之下压栈/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+          
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>需求：下压栈，（能够动态调整数组大小），支持迭代器</p>
+<p>数组实现：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ResizingArrayStack</span>&lt;<span class="title">Item</span>&gt; <span class="keyword">implements</span> <span class="title">Iterable</span>&lt;<span class="title">Item</span>&gt;</span>&#123;</div><div class="line">  	<span class="keyword">private</span> Item[] a = (Item[])<span class="keyword">new</span> Object[<span class="number">1</span>];</div><div class="line">  	<span class="keyword">private</span> <span class="keyword">int</span> N = <span class="number">0</span>;</div><div class="line">  	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">push</span><span class="params">(Item item)</span></span>&#123;</div><div class="line">      	<span class="keyword">if</span>(N == a.length)&#123;</div><div class="line">          	resize(<span class="number">2</span>*a.length);</div><div class="line">      	&#125;</div><div class="line">      	a[N++] = item;</div><div class="line">  	&#125;</div><div class="line">  	<span class="function"><span class="keyword">public</span> Itme <span class="title">pop</span><span class="params">()</span></span>&#123;</div><div class="line">      	Item item = a[--N];</div><div class="line">      	a[N] = <span class="keyword">null</span>;</div><div class="line">      	<span class="keyword">if</span>(N &gt; &amp;&amp; N == (a.length/<span class="number">4</span>))&#123;</div><div class="line">          	resize(a.length/<span class="number">2</span>);</div><div class="line">      	&#125;</div><div class="line">      	<span class="keyword">return</span> item;</div><div class="line">  	&#125;</div><div class="line">  	<span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isEmpty</span><span class="params">()</span></span>&#123;</div><div class="line">      	<span class="keyword">return</span> N == <span class="number">0</span>;</div><div class="line">  	&#125;</div><div class="line">  	<span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">size</span><span class="params">()</span></span>&#123;</div><div class="line">      	<span class="keyword">return</span> N;</div><div class="line">  	&#125;</div><div class="line">  	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">resize</span><span class="params">(<span class="keyword">int</span> max)</span></span>&#123;</div><div class="line">      	Item[] temp = (Item[])<span class="keyword">new</span> Object[max];</div><div class="line">      	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; a.length; i++)&#123;</div><div class="line">          	temp[i] = a[i];</div><div class="line">      	&#125;</div><div class="line">      	a = temp;</div><div class="line">  	&#125;</div><div class="line">  	<span class="function"><span class="keyword">public</span> Iterator&lt;Item&gt; <span class="title">iterator</span><span class="params">()</span></span>&#123;</div><div class="line">      	<span class="keyword">return</span> <span class="keyword">new</span> ReverseArrayIterator();</div><div class="line">  	&#125;</div><div class="line">  	<span class="keyword">private</span> <span class="class"><span class="keyword">class</span> <span class="title">ReverseArrayIterator</span> <span class="keyword">implements</span> <span class="title">Iterator</span>&lt;<span class="title">Item</span>&gt;</span>&#123;</div><div class="line">      	<span class="keyword">private</span> <span class="keyword">int</span> i = N;</div><div class="line">      	<span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">hasNext</span><span class="params">()</span></span>&#123;</div><div class="line">          	<span class="keyword">return</span> i &gt; <span class="number">0</span>;</div><div class="line">        &#125;</div><div class="line">      	<span class="function"><span class="keyword">public</span> Item <span class="title">next</span><span class="params">()</span></span>&#123;</div><div class="line">          	<span class="keyword">return</span> a[--i];</div><div class="line">      	&#125;</div><div class="line">      	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">remove</span><span class="params">()</span></span>&#123;&#125;</div><div class="line">  	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2017/02/16/算法学习之定容栈/" itemprop="url">
                   算法学习之定容栈
                 </a>
@@ -1352,113 +1474,13 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/08/02/hello-world/" itemprop="url">
-                  Hello World
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-08-02T14:05:52+08:00" content="2016-08-02">
-              2016-08-02
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/08/02/hello-world/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/02/hello-world/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-          
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/08/02/hello-world/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
+  <nav class="pagination">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+  </nav>
+
 
 
           </div>
@@ -1497,7 +1519,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">10</span>
+              <span class="site-state-item-count">11</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>

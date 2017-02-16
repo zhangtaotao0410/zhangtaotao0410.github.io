@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Y算子," />
+  <meta name="keywords" content="Hexo, NexT" />
 
 
 
@@ -84,16 +84,22 @@
 
 
 
-<meta name="description" content="Y算子scheme代码实现">
+<meta name="description" content="需求：下压栈，（能够动态调整数组大小），支持迭代器
+数组实现：
+1234567891011121314151617181920212223242526272829303132333435363738394041424344public class ResizingArrayStack&amp;lt;Item&amp;gt; implements Iterable&amp;lt;Item&amp;gt;&amp;#123;  	priva">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Y算子实现">
-<meta property="og:url" content="http://yoursite.com/2016/08/06/Y算子实现/index.html">
+<meta property="og:title" content="算法学习之下压栈">
+<meta property="og:url" content="http://yoursite.com/2017/02/16/算法学习之下压栈/index.html">
 <meta property="og:site_name" content="张逃逃'blog">
-<meta property="og:description" content="Y算子scheme代码实现">
-<meta property="og:updated_time" content="2016-08-15T14:40:53.000Z">
+<meta property="og:description" content="需求：下压栈，（能够动态调整数组大小），支持迭代器
+数组实现：
+1234567891011121314151617181920212223242526272829303132333435363738394041424344public class ResizingArrayStack&amp;lt;Item&amp;gt; implements Iterable&amp;lt;Item&amp;gt;&amp;#123;  	priva">
+<meta property="og:updated_time" content="2017-02-16T07:02:24.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Y算子实现">
-<meta name="twitter:description" content="Y算子scheme代码实现">
+<meta name="twitter:title" content="算法学习之下压栈">
+<meta name="twitter:description" content="需求：下压栈，（能够动态调整数组大小），支持迭代器
+数组实现：
+1234567891011121314151617181920212223242526272829303132333435363738394041424344public class ResizingArrayStack&amp;lt;Item&amp;gt; implements Iterable&amp;lt;Item&amp;gt;&amp;#123;  	priva">
 
 
 
@@ -114,9 +120,9 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2016/08/06/Y算子实现/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/02/16/算法学习之下压栈/"/>
 
-  <title> Y算子实现 | 张逃逃'blog </title>
+  <title> 算法学习之下压栈 | 张逃逃'blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -256,7 +262,7 @@
             
             
               
-                Y算子实现
+                算法学习之下压栈
               
             
           </h1>
@@ -268,8 +274,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-08-06T18:17:20+08:00" content="2016-08-06">
-              2016-08-06
+            <time itemprop="dateCreated" datetime="2017-02-16T15:00:15+08:00" content="2017-02-16">
+              2017-02-16
             </time>
           </span>
 
@@ -282,8 +288,8 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/scheme/" itemprop="url" rel="index">
-                    <span itemprop="name">scheme</span>
+                  <a href="/categories/算法/" itemprop="url" rel="index">
+                    <span itemprop="name">算法</span>
                   </a>
                 </span>
 
@@ -298,8 +304,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/08/06/Y算子实现/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/06/Y算子实现/" itemprop="commentsCount"></span>
+                <a href="/2017/02/16/算法学习之下压栈/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/02/16/算法学习之下压栈/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -322,9 +328,9 @@
       
 
       
-        <h1 id="Y算子scheme代码实现"><a href="#Y算子scheme代码实现" class="headerlink" title="Y算子scheme代码实现"></a>Y算子scheme代码实现</h1><a id="more"></a>
-<figure class="highlight scheme"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div></pre></td><td class="code"><pre><div class="line">(<span class="name"><span class="builtin-name">define</span></span> add1</div><div class="line">    (<span class="name"><span class="builtin-name">lambda</span></span> (n)</div><div class="line">        (<span class="name"><span class="builtin-name">+</span></span> n <span class="number">1</span>)))</div><div class="line"></div><div class="line"><span class="comment">;(((lambda (mk-length)</span></div><div class="line"><span class="comment">;    (mk-length mk-length))</span></div><div class="line"><span class="comment">; (lambda (mk-length)</span></div><div class="line"><span class="comment">;    (lambda (l)</span></div><div class="line"><span class="comment">;        (cond ((null? l) 0)</span></div><div class="line"><span class="comment">;              (else (add1 ((mk-length mk-length) (cdr l)))))))) (list 1 2))</span></div><div class="line"><span class="comment">;(((lambda (mk-length)</span></div><div class="line"><span class="comment">;    (mk-length mk-length))</span></div><div class="line"><span class="comment">; (lambda (mk-length)</span></div><div class="line"><span class="comment">;    ((lambda (length)</span></div><div class="line"><span class="comment">;        (lambda (l)</span></div><div class="line"><span class="comment">;            (cond ((null? l) 0)</span></div><div class="line"><span class="comment">;                  (else (add1 (length (cdr l)))))))</span></div><div class="line"><span class="comment">;     (lambda (x)</span></div><div class="line"><span class="comment">;        ((mk-length mk-length) x))))) (list 1 2 3 4 5 6))</span></div><div class="line"></div><div class="line"><span class="comment">;(((lambda (le)</span></div><div class="line"><span class="comment">;    ((lambda (mk-length)</span></div><div class="line"><span class="comment">;        (mk-length mk-length))</span></div><div class="line"><span class="comment">;    (lambda (mk-length)</span></div><div class="line"><span class="comment">;        (le (lambda (x) ((mk-length mk-length) x))))))</span></div><div class="line"><span class="comment">;  (lambda (length)</span></div><div class="line"><span class="comment">;      (lambda (l)</span></div><div class="line"><span class="comment">;          (cond ((null? l) 0)</span></div><div class="line"><span class="comment">;                (else (add1 (length (cdr l)))))))) (list 1 2 3 4 5 6 7 8 9 90))</span></div><div class="line"></div><div class="line"></div><div class="line">(<span class="name"><span class="builtin-name">define</span></span> Y</div><div class="line">    (<span class="name"><span class="builtin-name">lambda</span></span> (le)</div><div class="line">        ((<span class="name"><span class="builtin-name">lambda</span></span> (f) (<span class="name">f</span> f))</div><div class="line">         (<span class="name"><span class="builtin-name">lambda</span></span> (f)</div><div class="line">            (<span class="name">le</span> (<span class="name"><span class="builtin-name">lambda</span></span> (x) ((<span class="name">f</span> f) x)))))))</div><div class="line"></div><div class="line">((<span class="name">Y</span> (<span class="name"><span class="builtin-name">lambda</span></span> (length)</div><div class="line">           (<span class="name"><span class="builtin-name">lambda</span></span> (l)</div><div class="line">                   (<span class="name"><span class="builtin-name">cond</span></span> ((<span class="name"><span class="builtin-name">null?</span></span> l) <span class="number">0</span>)</div><div class="line">                         (<span class="name"><span class="builtin-name">else</span></span> (<span class="name">add1</span> (<span class="name"><span class="builtin-name">length</span></span> (<span class="name"><span class="builtin-name">cdr</span></span> l)))))))) (<span class="name"><span class="builtin-name">list</span></span> <span class="number">1</span> <span class="number">2</span> <span class="number">3</span> <span class="number">4</span> <span class="number">5</span> <span class="number">6</span> <span class="number">6</span>))</div></pre></td></tr></table></figure>
-<p>自己实现了一下，开熏~</p>
+        <p>需求：下压栈，（能够动态调整数组大小），支持迭代器</p>
+<p>数组实现：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ResizingArrayStack</span>&lt;<span class="title">Item</span>&gt; <span class="keyword">implements</span> <span class="title">Iterable</span>&lt;<span class="title">Item</span>&gt;</span>&#123;</div><div class="line">  	<span class="keyword">private</span> Item[] a = (Item[])<span class="keyword">new</span> Object[<span class="number">1</span>];</div><div class="line">  	<span class="keyword">private</span> <span class="keyword">int</span> N = <span class="number">0</span>;</div><div class="line">  	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">push</span><span class="params">(Item item)</span></span>&#123;</div><div class="line">      	<span class="keyword">if</span>(N == a.length)&#123;</div><div class="line">          	resize(<span class="number">2</span>*a.length);</div><div class="line">      	&#125;</div><div class="line">      	a[N++] = item;</div><div class="line">  	&#125;</div><div class="line">  	<span class="function"><span class="keyword">public</span> Itme <span class="title">pop</span><span class="params">()</span></span>&#123;</div><div class="line">      	Item item = a[--N];</div><div class="line">      	a[N] = <span class="keyword">null</span>;</div><div class="line">      	<span class="keyword">if</span>(N &gt; &amp;&amp; N == (a.length/<span class="number">4</span>))&#123;</div><div class="line">          	resize(a.length/<span class="number">2</span>);</div><div class="line">      	&#125;</div><div class="line">      	<span class="keyword">return</span> item;</div><div class="line">  	&#125;</div><div class="line">  	<span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isEmpty</span><span class="params">()</span></span>&#123;</div><div class="line">      	<span class="keyword">return</span> N == <span class="number">0</span>;</div><div class="line">  	&#125;</div><div class="line">  	<span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">size</span><span class="params">()</span></span>&#123;</div><div class="line">      	<span class="keyword">return</span> N;</div><div class="line">  	&#125;</div><div class="line">  	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">resize</span><span class="params">(<span class="keyword">int</span> max)</span></span>&#123;</div><div class="line">      	Item[] temp = (Item[])<span class="keyword">new</span> Object[max];</div><div class="line">      	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; a.length; i++)&#123;</div><div class="line">          	temp[i] = a[i];</div><div class="line">      	&#125;</div><div class="line">      	a = temp;</div><div class="line">  	&#125;</div><div class="line">  	<span class="function"><span class="keyword">public</span> Iterator&lt;Item&gt; <span class="title">iterator</span><span class="params">()</span></span>&#123;</div><div class="line">      	<span class="keyword">return</span> <span class="keyword">new</span> ReverseArrayIterator();</div><div class="line">  	&#125;</div><div class="line">  	<span class="keyword">private</span> <span class="class"><span class="keyword">class</span> <span class="title">ReverseArrayIterator</span> <span class="keyword">implements</span> <span class="title">Iterator</span>&lt;<span class="title">Item</span>&gt;</span>&#123;</div><div class="line">      	<span class="keyword">private</span> <span class="keyword">int</span> i = N;</div><div class="line">      	<span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">hasNext</span><span class="params">()</span></span>&#123;</div><div class="line">          	<span class="keyword">return</span> i &gt; <span class="number">0</span>;</div><div class="line">        &#125;</div><div class="line">      	<span class="function"><span class="keyword">public</span> Item <span class="title">next</span><span class="params">()</span></span>&#123;</div><div class="line">          	<span class="keyword">return</span> a[--i];</div><div class="line">      	&#125;</div><div class="line">      	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">remove</span><span class="params">()</span></span>&#123;&#125;</div><div class="line">  	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 
       
     </div>
@@ -345,28 +351,18 @@
 
     <footer class="post-footer">
       
-        <div class="post-tags">
-          
-            <a href="/tags/Y算子/" rel="tag">#Y算子</a>
-          
-        </div>
-      
 
       
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/08/04/AS利用gradle实现src-layout分包/" rel="next" title="AS利用gradle实现src/layout分包">
-                <i class="fa fa-chevron-left"></i> AS利用gradle实现src/layout分包
+              <a href="/2017/02/16/算法学习之定容栈/" rel="next" title="算法学习之定容栈">
+                <i class="fa fa-chevron-left"></i> 算法学习之定容栈
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/08/11/安卓编码规范文档/" rel="prev" title="安卓编码规范文档">
-                安卓编码规范文档 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -381,10 +377,10 @@
 
     <div class="post-spread">
       
-        <div class="ds-share flat" data-thread-key="2016/08/06/Y算子实现/"
-     data-title="Y算子实现"
+        <div class="ds-share flat" data-thread-key="2017/02/16/算法学习之下压栈/"
+     data-title="算法学习之下压栈"
      data-content=""
-     data-url="http://yoursite.com/2016/08/06/Y算子实现/">
+     data-url="http://yoursite.com/2017/02/16/算法学习之下压栈/">
   <div class="ds-share-inline">
     <ul  class="ds-share-icons-16">
 
@@ -411,8 +407,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/08/06/Y算子实现/"
-           data-title="Y算子实现" data-url="http://yoursite.com/2016/08/06/Y算子实现/">
+      <div class="ds-thread" data-thread-key="2017/02/16/算法学习之下压栈/"
+           data-title="算法学习之下压栈" data-url="http://yoursite.com/2017/02/16/算法学习之下压栈/">
       </div>
     
   </div>
@@ -555,7 +551,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Y算子scheme代码实现"><span class="nav-number">1.</span> <span class="nav-text">Y算子scheme代码实现</span></a></li></ol></div>
+              <p class="post-toc-empty">此文章未包含目录</p>
             
           </div>
         </section>
