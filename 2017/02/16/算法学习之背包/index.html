@@ -84,15 +84,22 @@
 
 
 
-<meta name="description" content="辉格教徒、坑教教徒">
-<meta property="og:type" content="website">
-<meta property="og:title" content="张逃逃'blog">
-<meta property="og:url" content="http://yoursite.com/categories/git/index.html">
+<meta name="description" content="需求：基于链表数据结构实现背包
+实现：
+12345678910111213141516171819202122232425262728293031import java.util.Iteratorpublic class Bag&amp;lt;Item&amp;gt; implements Iterable&amp;lt;Item&amp;gt;&amp;#123;  	private Node first;  	  	private">
+<meta property="og:type" content="article">
+<meta property="og:title" content="算法学习之背包">
+<meta property="og:url" content="http://yoursite.com/2017/02/16/算法学习之背包/index.html">
 <meta property="og:site_name" content="张逃逃'blog">
-<meta property="og:description" content="辉格教徒、坑教教徒">
+<meta property="og:description" content="需求：基于链表数据结构实现背包
+实现：
+12345678910111213141516171819202122232425262728293031import java.util.Iteratorpublic class Bag&amp;lt;Item&amp;gt; implements Iterable&amp;lt;Item&amp;gt;&amp;#123;  	private Node first;  	  	private">
+<meta property="og:updated_time" content="2017-02-16T07:08:01.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="张逃逃'blog">
-<meta name="twitter:description" content="辉格教徒、坑教教徒">
+<meta name="twitter:title" content="算法学习之背包">
+<meta name="twitter:description" content="需求：基于链表数据结构实现背包
+实现：
+12345678910111213141516171819202122232425262728293031import java.util.Iteratorpublic class Bag&amp;lt;Item&amp;gt; implements Iterable&amp;lt;Item&amp;gt;&amp;#123;  	private Node first;  	  	private">
 
 
 
@@ -113,9 +120,9 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/categories/git/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/02/16/算法学习之背包/"/>
 
-  <title> 分类: git | 张逃逃'blog </title>
+  <title> 算法学习之背包 | 张逃逃'blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -136,7 +143,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left  ">
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -234,47 +241,163 @@
           <div id="content" class="content">
             
 
-  <section id="posts" class="posts-collapse">
-    <div class="collection-title">
-      <h2 >
-        git
-        <small>分类</small>
-      </h2>
-    </div>
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal true" itemscope itemtype="http://schema.org/Article">
 
     
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                算法学习之背包
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-02-16T15:07:34+08:00" content="2017-02-16">
+              2017-02-16
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/算法/" itemprop="url" rel="index">
+                    <span itemprop="name">算法</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2017/02/16/算法学习之背包/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/02/16/算法学习之背包/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+          
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
       
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+      
+        <p>需求：基于链表数据结构实现背包</p>
+<p>实现：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> java.util.Iterator</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Bag</span>&lt;<span class="title">Item</span>&gt; <span class="keyword">implements</span> <span class="title">Iterable</span>&lt;<span class="title">Item</span>&gt;</span>&#123;</div><div class="line">  	<span class="keyword">private</span> Node first;</div><div class="line">  	</div><div class="line">  	<span class="keyword">private</span> <span class="class"><span class="keyword">class</span> <span class="title">Node</span></span>&#123;</div><div class="line">      	Item item;</div><div class="line">      	Node next;</div><div class="line">  	&#125;</div><div class="line">  	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">add</span><span class="params">(Item item)</span></span>&#123;</div><div class="line">      	Node oldfirst = first;</div><div class="line">      	first = <span class="keyword">new</span> Node();</div><div class="line">      	first.item = item;</div><div class="line">      	first.next = oldfirst;</div><div class="line">  	&#125;</div><div class="line">  	<span class="function"><span class="keyword">public</span> Iterator <span class="title">iterator</span><span class="params">()</span></span>&#123;</div><div class="line">      	<span class="keyword">return</span> <span class="keyword">new</span> ListIterator();</div><div class="line">  	&#125;</div><div class="line">  	<span class="keyword">private</span> ListIterator implements Iterator&#123;</div><div class="line">      	<span class="keyword">private</span> Node current = first;</div><div class="line">      	<span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">hasNext</span><span class="params">()</span></span>&#123;</div><div class="line">          	<span class="keyword">return</span> current != <span class="keyword">null</span>;</div><div class="line">      	&#125;</div><div class="line">      	<span class="function"><span class="keyword">public</span> Item <span class="title">next</span><span class="params">()</span></span>&#123;</div><div class="line">          	Item item = current.item;</div><div class="line">          	current = current.next;</div><div class="line">          	<span class="keyword">return</span> item;</div><div class="line">      	&#125;</div><div class="line">      	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">remove</span><span class="params">()</span></span>&#123;&#125;</div><div class="line">  	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 
-      <h1 class="post-title">
+      
+    </div>
+
+    <div>
+      
         
-            <a class="post-title-link" href="/2016/09/13/git-Host-key-verification-failed-解决方案/" itemprop="url">
-              
-                <span itemprop="name">git 'Host key verification failed'解决方案</span>
-              
-            </a>
+
+      
+    </div>
+
+    <div>
+      
         
-      </h1>
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-09-13T16:36:25+08:00"
-              content="2016-09-13" >
-          09-13
-        </time>
-      </div>
+      
+    </div>
 
-    </header>
+    <footer class="post-footer">
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/02/16/算法学习之队列（链表实现）/" rel="next" title="算法学习之队列（链表实现）">
+                <i class="fa fa-chevron-left"></i> 算法学习之队列（链表实现）
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </article>
 
 
-    
-  </section>
 
-  
+    <div class="post-spread">
+      
+        <div class="ds-share flat" data-thread-key="2017/02/16/算法学习之背包/"
+     data-title="算法学习之背包"
+     data-content=""
+     data-url="http://yoursite.com/2017/02/16/算法学习之背包/">
+  <div class="ds-share-inline">
+    <ul  class="ds-share-icons-16">
 
+      <li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
+      <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
+      <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
+      <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
+      <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
+
+    </ul>
+    <div class="ds-share-icons-more">
+    </div>
+  </div>
+</div>
+      
+    </div>
+  </div>
 
 
           </div>
@@ -282,6 +405,14 @@
 
 
           
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2017/02/16/算法学习之背包/"
+           data-title="算法学习之背包" data-url="http://yoursite.com/2017/02/16/算法学习之背包/">
+      </div>
+    
+  </div>
+
 
         </div>
         
@@ -301,8 +432,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel  sidebar-panel-active ">
+      <section class="site-overview sidebar-panel ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/uploads/avatar.jpg"
@@ -404,6 +544,17 @@
 
       </section>
 
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <p class="post-toc-empty">此文章未包含目录</p>
+            
+          </div>
+        </section>
       
 
     </div>
@@ -510,6 +661,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
 
   
 
