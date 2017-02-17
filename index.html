@@ -258,6 +258,128 @@
             
               
                 
+                <a class="post-title-link" href="/2017/02/17/算法学习之选择排序/" itemprop="url">
+                  算法学习之选择排序
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-02-17T17:12:47+08:00" content="2017-02-17">
+              2017-02-17
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/算法/" itemprop="url" rel="index">
+                    <span itemprop="name">算法</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2017/02/17/算法学习之选择排序/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/02/17/算法学习之选择排序/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+          
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>需求：从小到大排列数组元素，其中每个元素都有一个主键。选择排序是：首先找出数组中最小的那个元素，其次，将它跟数组中的第一个元素交换位置，再次，在剩下的元素中找出最小的元素，将它与数组中第二个元素交换位置。如此直至整个数组排序完毕。（因为他不断的在剩余元素中找最小的元素，所有叫选择排序）</p>
+<p>实现：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Selection</span></span>&#123;</div><div class="line">  	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">sort</span><span class="params">(Comparable[] a)</span></span>&#123;</div><div class="line">      	<span class="keyword">int</span> N = a.length;</div><div class="line">      	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; N; i++)&#123;</div><div class="line">          	<span class="keyword">int</span> min = i;</div><div class="line">          	<span class="keyword">for</span>(<span class="keyword">int</span> j = i + <span class="number">1</span>; j &lt; N; j++)&#123;</div><div class="line">              	<span class="keyword">if</span>(less(a[j],a[min])) min = j;</div><div class="line">          	&#125;</div><div class="line">            exch(a, i, min);</div><div class="line">      	&#125;</div><div class="line">  	&#125;</div><div class="line"> 	<span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">boolean</span> <span class="title">less</span><span class="params">(Comparable v, Comparable w)</span></span>&#123;</div><div class="line">      	<span class="keyword">return</span> v.compareTo(w) &lt; <span class="number">0</span>;</div><div class="line"> 	&#125;</div><div class="line">  	<span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">exch</span><span class="params">(Comparable[] a, <span class="keyword">int</span> i, <span class="keyword">int</span> j)</span></span>&#123;</div><div class="line">      	Comparable temp = a[i];</div><div class="line">      	a[i] = a[j];</div><div class="line">      	a[j] = temp;</div><div class="line">  	&#125;</div><div class="line">  	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">boolean</span> <span class="title">isSorted</span><span class="params">(Comparable[] a)</span></span>&#123;</div><div class="line">      	<span class="keyword">int</span> N = a.length;</div><div class="line">      	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; N; i++)&#123;</div><div class="line">          	<span class="keyword">if</span>(less(a[i],a[i-<span class="number">1</span>])) <span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line">      	&#125;</div><div class="line">  	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2017/02/16/算法学习之union-find算法/" itemprop="url">
                   算法学习之union_find算法
                 </a>
@@ -1354,131 +1476,6 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/08/29/java代码优化/" itemprop="url">
-                  java代码优化
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-08-29T10:28:17+08:00" content="2016-08-29">
-              2016-08-29
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/java/" itemprop="url" rel="index">
-                    <span itemprop="name">java</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/08/29/java代码优化/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/29/java代码优化/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-          
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h1 id="java代码优化-转"><a href="#java代码优化-转" class="headerlink" title="java代码优化[转]"></a>java代码优化[转]</h1><h2 id="原文地址"><a href="#原文地址" class="headerlink" title="原文地址"></a><a href="http://www.cnblogs.com/xrq730/p/4865416.html">原文地址</a></h2><p>2016年3月修改，结合自己的工作和平时学习的体验重新谈一下为什么要进行代码优化。在修改之前，我的说法是这样的：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">就像鲸鱼吃虾米一样，也许吃一个两个虾米对于鲸鱼来说作用不大，但是吃的虾米多了，鲸鱼自然饱了。</div><div class="line">代码优化一样，也许一个两个的优化，对于提升代码的运行效率意义不大，但是只要处处都能注意代码优化，总体来说对于提升代码的运行效率就很有用了。</div></pre></td></tr></table></figure>
-<p>这个观点，在现在看来，是要进行代码优化的一个原因，但不全对。在机械工艺发展的今天，服务器动辄8核、16核，64位CPU，代码执行效率非常高，StringBuilder替换StringBuffer、ArrayList替换Vector，对于代码运行效率的提升是微乎其微的，即使是项目中的每个点都注意到了，代码运行也看不出什么明显的变化。</p>
-<p>我认为，代码优化的最重要的作用应该是：避免未知的错误。在代码上线运行的过程中，往往会出现很多我们意想不到的错误，因为线上环境和开发环境是非常不同的，错误定位到最后往往是一个非常小的原因。然而为了解决这个错误，我们需要先自验证、再打包出待替换的class文件、暂停业务并重启，对于一个成熟的项目而言，最后一条其实影响是非常大的，这意味着这段时间用户无法访问应用。因此，在写代码的时候，从源头开始注意各种细节，权衡并使用最优的选择，将会很大程度上避免出现未知的错误，从长远看也极大的降低了工作量。</p>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/08/29/java代码优化/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1524,7 +1521,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">15</span>
+              <span class="site-state-item-count">16</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
