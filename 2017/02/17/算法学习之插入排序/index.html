@@ -84,15 +84,22 @@
 
 
 
-<meta name="description" content="辉格教徒、坑教教徒">
-<meta property="og:type" content="website">
-<meta property="og:title" content="张逃逃'blog">
-<meta property="og:url" content="http://yoursite.com/categories/mac/index.html">
+<meta name="description" content="需求：将每一个元素插入到其他已经有序的元素中的适当位置。在计算机的实现中，为了给要插入的元素腾出空间，需要将其余所有元素在插入之前都向右移动一位，这种算法叫插入排序。适用于部分有序数组。
+实现：
+12345678910public class Insertion&amp;#123;  	public static void sort(Comparable[] a)&amp;#123;      	int N =">
+<meta property="og:type" content="article">
+<meta property="og:title" content="算法学习之插入排序">
+<meta property="og:url" content="http://yoursite.com/2017/02/17/算法学习之插入排序/index.html">
 <meta property="og:site_name" content="张逃逃'blog">
-<meta property="og:description" content="辉格教徒、坑教教徒">
+<meta property="og:description" content="需求：将每一个元素插入到其他已经有序的元素中的适当位置。在计算机的实现中，为了给要插入的元素腾出空间，需要将其余所有元素在插入之前都向右移动一位，这种算法叫插入排序。适用于部分有序数组。
+实现：
+12345678910public class Insertion&amp;#123;  	public static void sort(Comparable[] a)&amp;#123;      	int N =">
+<meta property="og:updated_time" content="2017-02-17T09:15:28.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="张逃逃'blog">
-<meta name="twitter:description" content="辉格教徒、坑教教徒">
+<meta name="twitter:title" content="算法学习之插入排序">
+<meta name="twitter:description" content="需求：将每一个元素插入到其他已经有序的元素中的适当位置。在计算机的实现中，为了给要插入的元素腾出空间，需要将其余所有元素在插入之前都向右移动一位，这种算法叫插入排序。适用于部分有序数组。
+实现：
+12345678910public class Insertion&amp;#123;  	public static void sort(Comparable[] a)&amp;#123;      	int N =">
 
 
 
@@ -113,9 +120,9 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/categories/mac/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/02/17/算法学习之插入排序/"/>
 
-  <title> 分类: mac | 张逃逃'blog </title>
+  <title> 算法学习之插入排序 | 张逃逃'blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -136,7 +143,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left  ">
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -234,47 +241,163 @@
           <div id="content" class="content">
             
 
-  <section id="posts" class="posts-collapse">
-    <div class="collection-title">
-      <h2 >
-        mac
-        <small>分类</small>
-      </h2>
-    </div>
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal true" itemscope itemtype="http://schema.org/Article">
 
     
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                算法学习之插入排序
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-02-17T17:15:04+08:00" content="2017-02-17">
+              2017-02-17
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/算法/" itemprop="url" rel="index">
+                    <span itemprop="name">算法</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2017/02/17/算法学习之插入排序/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/02/17/算法学习之插入排序/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+          
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
       
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+      
+        <p>需求：将每一个元素插入到其他已经有序的元素中的适当位置。在计算机的实现中，为了给要插入的元素腾出空间，需要将其余所有元素在插入之前都向右移动一位，这种算法叫插入排序。适用于部分有序数组。</p>
+<p>实现：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Insertion</span></span>&#123;</div><div class="line">  	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">sort</span><span class="params">(Comparable[] a)</span></span>&#123;</div><div class="line">      	<span class="keyword">int</span> N = a.length;</div><div class="line">      	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; N; i++)&#123;</div><div class="line">          	<span class="keyword">for</span>(<span class="keyword">int</span> j = i; j &gt; <span class="number">0</span>&amp;&amp; less(a[j],a[j-<span class="number">1</span>]); j--)&#123;</div><div class="line">              	exch(a, j, j-<span class="number">1</span>);</div><div class="line">          	&#125;</div><div class="line">      	&#125;</div><div class="line">  	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 
-      <h1 class="post-title">
+      
+    </div>
+
+    <div>
+      
         
-            <a class="post-title-link" href="/2016/09/28/mac上用android-studio-获取应用签名/" itemprop="url">
-              
-                <span itemprop="name">mac上用android studio 获取应用签名</span>
-              
-            </a>
+
+      
+    </div>
+
+    <div>
+      
         
-      </h1>
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-09-28T11:50:29+08:00"
-              content="2016-09-28" >
-          09-28
-        </time>
-      </div>
+      
+    </div>
 
-    </header>
+    <footer class="post-footer">
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/02/17/算法学习之选择排序/" rel="next" title="算法学习之选择排序">
+                <i class="fa fa-chevron-left"></i> 算法学习之选择排序
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </article>
 
 
-    
-  </section>
 
-  
+    <div class="post-spread">
+      
+        <div class="ds-share flat" data-thread-key="2017/02/17/算法学习之插入排序/"
+     data-title="算法学习之插入排序"
+     data-content=""
+     data-url="http://yoursite.com/2017/02/17/算法学习之插入排序/">
+  <div class="ds-share-inline">
+    <ul  class="ds-share-icons-16">
 
+      <li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
+      <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
+      <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
+      <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
+      <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
+
+    </ul>
+    <div class="ds-share-icons-more">
+    </div>
+  </div>
+</div>
+      
+    </div>
+  </div>
 
 
           </div>
@@ -282,6 +405,14 @@
 
 
           
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2017/02/17/算法学习之插入排序/"
+           data-title="算法学习之插入排序" data-url="http://yoursite.com/2017/02/17/算法学习之插入排序/">
+      </div>
+    
+  </div>
+
 
         </div>
         
@@ -301,8 +432,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel  sidebar-panel-active ">
+      <section class="site-overview sidebar-panel ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/uploads/avatar.jpg"
@@ -404,6 +544,17 @@
 
       </section>
 
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <p class="post-toc-empty">此文章未包含目录</p>
+            
+          </div>
+        </section>
       
 
     </div>
@@ -510,6 +661,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
 
   
 
