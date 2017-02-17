@@ -258,6 +258,128 @@
             
               
                 
+                <a class="post-title-link" href="/2017/02/17/算法学习之希尔排序/" itemprop="url">
+                  算法学习之希尔排序
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-02-17T17:22:30+08:00" content="2017-02-17">
+              2017-02-17
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/算法/" itemprop="url" rel="index">
+                    <span itemprop="name">算法</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2017/02/17/算法学习之希尔排序/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/02/17/算法学习之希尔排序/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+          
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>需求：对于大规模乱序数组插入排序很慢，因为它只会交换相邻的元素，因此元素只能一点点从数组的一端移到另一端。希尔排序为了加快速度简单地改进了插入排序，交换不相邻的元素以对数组的局部进行排序，并最终用插入排序将局部有序的数组排序。希尔排序的思想是使数组中任意间隔为h的元素都是有序的。这样的数组称为h有序数组，一个h有序数组就是h个互相独立的有序数组编织在一起组成的一个数组。</p>
+<p>实现：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Shell</span></span>&#123;</div><div class="line">  	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">sort</span><span class="params">(Comparable[] a)</span></span>&#123;</div><div class="line">      	<span class="keyword">int</span> N = a.length;</div><div class="line">      	<span class="keyword">int</span> h = <span class="number">1</span>;</div><div class="line">      	<span class="keyword">while</span>(h &lt; N/<span class="number">3</span>)&#123;</div><div class="line">          	h = <span class="number">3</span>*h + <span class="number">1</span>; <span class="comment">// 1 4 13 40 ...</span></div><div class="line">      	&#125;</div><div class="line">      	<span class="keyword">while</span>(h &gt;= <span class="number">1</span>)&#123;</div><div class="line">          	<span class="keyword">for</span>(<span class="keyword">int</span> i = h; i &lt; N; i++)&#123;</div><div class="line">              	<span class="keyword">for</span>(<span class="keyword">int</span> j = i; j &gt;= h&amp;&amp; less(a[j],a[j-h]); j-=h)&#123;</div><div class="line">                   exch(a, j, j-h);<span class="comment">//将元素移动到很远的地方为实现更小的h有序创造方便</span></div><div class="line">              	&#125;</div><div class="line">          	&#125;</div><div class="line">          	h = h/<span class="number">3</span>; <span class="comment">//更小的h有序</span></div><div class="line">      	&#125;</div><div class="line">  	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2017/02/17/算法学习之插入排序/" itemprop="url">
                   算法学习之插入排序
                 </a>
@@ -1346,133 +1468,6 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/09/13/git-Host-key-verification-failed-解决方案/" itemprop="url">
-                  git 'Host key verification failed'解决方案
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-09-13T16:36:25+08:00" content="2016-09-13">
-              2016-09-13
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/git/" itemprop="url" rel="index">
-                    <span itemprop="name">git</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/09/13/git-Host-key-verification-failed-解决方案/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/09/13/git-Host-key-verification-failed-解决方案/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-          
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>git服务器换地址，切到正确地址然后push，报错“Host key verification failed.“。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@</div><div class="line">@    WARNING: REMOTE HOST IDENTIFICATION HAS CHANGED!     @</div><div class="line">@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@</div><div class="line">IT IS POSSIBLE THAT SOMEONE IS DOING SOMETHING NASTY!</div><div class="line"><span class="function">Someone could be eavesdropping on you right <span class="title">now</span> <span class="params">(man-in-the-middle attack)</span>!</span></div><div class="line">It is also possible that the RSA host key has just been changed.</div><div class="line">The fingerprint <span class="keyword">for</span> the RSA key sent by the remote host is</div><div class="line">23:00:20:83:de:02:95:f1:e3:34:be:57:3f:cf:2c:e7.</div><div class="line">Please contact your system administrator.</div><div class="line">Add correct host key in /home/xahria/.ssh/known_hosts to get rid of <span class="keyword">this</span> message.</div><div class="line">Offending key in /home/xahria/.ssh/known_hosts:8</div><div class="line">RSA host key <span class="keyword">for</span> localhost has changed and you have requested strict checking.</div><div class="line">Host key verification failed.</div></pre></td></tr></table></figure>
-<p>google解决方案记录在此。</p>
-<p>网上很多的解决方案是：vi ~/.ssh/known_hosts 删除与想要连接的主机相关的行；或者直接删除known_hosts这个文件。 当然这个方案也是可行的，但并非解决问题的根本办法，因为继续使用，今后还会出现这样的情况，还得再删除。<br>下面简单讲一下这个问题的原理和比较长久的解决方案。<br>用OpenSSH的人都知ssh会把你每个你访问过计算机的公钥(public key)都记录在~/.ssh/known_hosts。当下次访问相同计算机时，OpenSSH会核对公钥。如果公钥不同，OpenSSH会发出警告，避免你受到DNS Hijack之类的攻击。<br>SSH对主机的public_key的检查等级是根据StrictHostKeyChecking变量来配置的。默认情况下，StrictHostKeyChecking=ask。简单所下它的三种配置值：<br>1.StrictHostKeyChecking=no  #最不安全的级别，当然也没有那么多烦人的提示了，相对安全的内网测试时建议使用。如果连接server的key在本地不存在，那么就自动添加到文件中（默认是known_hosts），并且给出一个警告。</p>
-<p>2.StrictHostKeyChecking=ask  #默认的级别，就是出现刚才的提示了。如果连接和key不匹配，给出提示，并拒绝登录。<br>3.StrictHostKeyChecking=yes  #最安全的级别，如果连接与key不匹配，就拒绝连接，不会提示详细信息。</p>
-<p>对于我来说，在内网的进行的一些测试，为了方便，选择最低的安全级别。在.ssh/config（或者/etc/ssh/ssh_config）中配置：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">StrictHostKeyChecking no</div><div class="line">UserKnownHostsFile /dev/<span class="keyword">null</span></div></pre></td></tr></table></figure>
-<p>（注：这里为了简便，将knownhostfile设为/dev/null，就不保存在known_hosts中了）</p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1518,7 +1513,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">17</span>
+              <span class="site-state-item-count">18</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>

@@ -84,22 +84,22 @@
 
 
 
-<meta name="description" content="需求：将每一个元素插入到其他已经有序的元素中的适当位置。在计算机的实现中，为了给要插入的元素腾出空间，需要将其余所有元素在插入之前都向右移动一位，这种算法叫插入排序。适用于部分有序数组。
+<meta name="description" content="需求：对于大规模乱序数组插入排序很慢，因为它只会交换相邻的元素，因此元素只能一点点从数组的一端移到另一端。希尔排序为了加快速度简单地改进了插入排序，交换不相邻的元素以对数组的局部进行排序，并最终用插入排序将局部有序的数组排序。希尔排序的思想是使数组中任意间隔为h的元素都是有序的。这样的数组称为h有序数组，一个h有序数组就是h个互相独立的有序数组编织在一起组成的一个数组。
 实现：
-12345678910public class Insertion&amp;#123;  	public static void sort(Comparable[] a)&amp;#123;      	int N =">
+123456789">
 <meta property="og:type" content="article">
-<meta property="og:title" content="算法学习之插入排序">
-<meta property="og:url" content="http://yoursite.com/2017/02/17/算法学习之插入排序/index.html">
+<meta property="og:title" content="算法学习之希尔排序">
+<meta property="og:url" content="http://yoursite.com/2017/02/17/算法学习之希尔排序/index.html">
 <meta property="og:site_name" content="张逃逃'blog">
-<meta property="og:description" content="需求：将每一个元素插入到其他已经有序的元素中的适当位置。在计算机的实现中，为了给要插入的元素腾出空间，需要将其余所有元素在插入之前都向右移动一位，这种算法叫插入排序。适用于部分有序数组。
+<meta property="og:description" content="需求：对于大规模乱序数组插入排序很慢，因为它只会交换相邻的元素，因此元素只能一点点从数组的一端移到另一端。希尔排序为了加快速度简单地改进了插入排序，交换不相邻的元素以对数组的局部进行排序，并最终用插入排序将局部有序的数组排序。希尔排序的思想是使数组中任意间隔为h的元素都是有序的。这样的数组称为h有序数组，一个h有序数组就是h个互相独立的有序数组编织在一起组成的一个数组。
 实现：
-12345678910public class Insertion&amp;#123;  	public static void sort(Comparable[] a)&amp;#123;      	int N =">
-<meta property="og:updated_time" content="2017-02-17T09:15:28.000Z">
+123456789">
+<meta property="og:updated_time" content="2017-02-17T09:22:50.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="算法学习之插入排序">
-<meta name="twitter:description" content="需求：将每一个元素插入到其他已经有序的元素中的适当位置。在计算机的实现中，为了给要插入的元素腾出空间，需要将其余所有元素在插入之前都向右移动一位，这种算法叫插入排序。适用于部分有序数组。
+<meta name="twitter:title" content="算法学习之希尔排序">
+<meta name="twitter:description" content="需求：对于大规模乱序数组插入排序很慢，因为它只会交换相邻的元素，因此元素只能一点点从数组的一端移到另一端。希尔排序为了加快速度简单地改进了插入排序，交换不相邻的元素以对数组的局部进行排序，并最终用插入排序将局部有序的数组排序。希尔排序的思想是使数组中任意间隔为h的元素都是有序的。这样的数组称为h有序数组，一个h有序数组就是h个互相独立的有序数组编织在一起组成的一个数组。
 实现：
-12345678910public class Insertion&amp;#123;  	public static void sort(Comparable[] a)&amp;#123;      	int N =">
+123456789">
 
 
 
@@ -120,9 +120,9 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/02/17/算法学习之插入排序/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/02/17/算法学习之希尔排序/"/>
 
-  <title> 算法学习之插入排序 | 张逃逃'blog </title>
+  <title> 算法学习之希尔排序 | 张逃逃'blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -262,7 +262,7 @@
             
             
               
-                算法学习之插入排序
+                算法学习之希尔排序
               
             
           </h1>
@@ -274,7 +274,7 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-02-17T17:15:04+08:00" content="2017-02-17">
+            <time itemprop="dateCreated" datetime="2017-02-17T17:22:30+08:00" content="2017-02-17">
               2017-02-17
             </time>
           </span>
@@ -304,8 +304,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2017/02/17/算法学习之插入排序/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/02/17/算法学习之插入排序/" itemprop="commentsCount"></span>
+                <a href="/2017/02/17/算法学习之希尔排序/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/02/17/算法学习之希尔排序/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -328,9 +328,9 @@
       
 
       
-        <p>需求：将每一个元素插入到其他已经有序的元素中的适当位置。在计算机的实现中，为了给要插入的元素腾出空间，需要将其余所有元素在插入之前都向右移动一位，这种算法叫插入排序。适用于部分有序数组。</p>
+        <p>需求：对于大规模乱序数组插入排序很慢，因为它只会交换相邻的元素，因此元素只能一点点从数组的一端移到另一端。希尔排序为了加快速度简单地改进了插入排序，交换不相邻的元素以对数组的局部进行排序，并最终用插入排序将局部有序的数组排序。希尔排序的思想是使数组中任意间隔为h的元素都是有序的。这样的数组称为h有序数组，一个h有序数组就是h个互相独立的有序数组编织在一起组成的一个数组。</p>
 <p>实现：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Insertion</span></span>&#123;</div><div class="line">  	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">sort</span><span class="params">(Comparable[] a)</span></span>&#123;</div><div class="line">      	<span class="keyword">int</span> N = a.length;</div><div class="line">      	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; N; i++)&#123;</div><div class="line">          	<span class="keyword">for</span>(<span class="keyword">int</span> j = i; j &gt; <span class="number">0</span>&amp;&amp; less(a[j],a[j-<span class="number">1</span>]); j--)&#123;</div><div class="line">              	exch(a, j, j-<span class="number">1</span>);</div><div class="line">          	&#125;</div><div class="line">      	&#125;</div><div class="line">  	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Shell</span></span>&#123;</div><div class="line">  	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">sort</span><span class="params">(Comparable[] a)</span></span>&#123;</div><div class="line">      	<span class="keyword">int</span> N = a.length;</div><div class="line">      	<span class="keyword">int</span> h = <span class="number">1</span>;</div><div class="line">      	<span class="keyword">while</span>(h &lt; N/<span class="number">3</span>)&#123;</div><div class="line">          	h = <span class="number">3</span>*h + <span class="number">1</span>; <span class="comment">// 1 4 13 40 ...</span></div><div class="line">      	&#125;</div><div class="line">      	<span class="keyword">while</span>(h &gt;= <span class="number">1</span>)&#123;</div><div class="line">          	<span class="keyword">for</span>(<span class="keyword">int</span> i = h; i &lt; N; i++)&#123;</div><div class="line">              	<span class="keyword">for</span>(<span class="keyword">int</span> j = i; j &gt;= h&amp;&amp; less(a[j],a[j-h]); j-=h)&#123;</div><div class="line">                   exch(a, j, j-h);<span class="comment">//将元素移动到很远的地方为实现更小的h有序创造方便</span></div><div class="line">              	&#125;</div><div class="line">          	&#125;</div><div class="line">          	h = h/<span class="number">3</span>; <span class="comment">//更小的h有序</span></div><div class="line">      	&#125;</div><div class="line">  	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 
       
     </div>
@@ -356,17 +356,13 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/02/17/算法学习之选择排序/" rel="next" title="算法学习之选择排序">
-                <i class="fa fa-chevron-left"></i> 算法学习之选择排序
+              <a href="/2017/02/17/算法学习之插入排序/" rel="next" title="算法学习之插入排序">
+                <i class="fa fa-chevron-left"></i> 算法学习之插入排序
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/02/17/算法学习之希尔排序/" rel="prev" title="算法学习之希尔排序">
-                算法学习之希尔排序 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -381,10 +377,10 @@
 
     <div class="post-spread">
       
-        <div class="ds-share flat" data-thread-key="2017/02/17/算法学习之插入排序/"
-     data-title="算法学习之插入排序"
+        <div class="ds-share flat" data-thread-key="2017/02/17/算法学习之希尔排序/"
+     data-title="算法学习之希尔排序"
      data-content=""
-     data-url="http://yoursite.com/2017/02/17/算法学习之插入排序/">
+     data-url="http://yoursite.com/2017/02/17/算法学习之希尔排序/">
   <div class="ds-share-inline">
     <ul  class="ds-share-icons-16">
 
@@ -411,8 +407,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2017/02/17/算法学习之插入排序/"
-           data-title="算法学习之插入排序" data-url="http://yoursite.com/2017/02/17/算法学习之插入排序/">
+      <div class="ds-thread" data-thread-key="2017/02/17/算法学习之希尔排序/"
+           data-title="算法学习之希尔排序" data-url="http://yoursite.com/2017/02/17/算法学习之希尔排序/">
       </div>
     
   </div>
