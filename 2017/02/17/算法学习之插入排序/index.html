@@ -84,22 +84,22 @@
 
 
 
-<meta name="description" content="需求：将每一个元素插入到其他已经有序的元素中的适当位置。在计算机的实现中，为了给要插入的元素腾出空间，需要将其余所有元素在插入之前都向右移动一位，这种算法叫插入排序。适用于部分有序数组。
+<meta name="description" content="需求：将每一个元素a[i]插入到有序的a[i-1],a[i-2],a[i-3]…中。在计算机的实现中，为了给要插入的元素腾出空间，需要将其余所有元素在插入之前都向右移动一位，这种算法叫插入排序。适用于部分有序数组。
 实现：
-12345678910public class Insertion&amp;#123;  	public static void sort(Comparable[] a)&amp;#123;      	int N =">
+12345678910public class Insertion&amp;#123;  	public static void sort(Comparable[] a)&amp;#123;">
 <meta property="og:type" content="article">
 <meta property="og:title" content="算法学习之插入排序">
 <meta property="og:url" content="http://yoursite.com/2017/02/17/算法学习之插入排序/index.html">
 <meta property="og:site_name" content="张逃逃'blog">
-<meta property="og:description" content="需求：将每一个元素插入到其他已经有序的元素中的适当位置。在计算机的实现中，为了给要插入的元素腾出空间，需要将其余所有元素在插入之前都向右移动一位，这种算法叫插入排序。适用于部分有序数组。
+<meta property="og:description" content="需求：将每一个元素a[i]插入到有序的a[i-1],a[i-2],a[i-3]…中。在计算机的实现中，为了给要插入的元素腾出空间，需要将其余所有元素在插入之前都向右移动一位，这种算法叫插入排序。适用于部分有序数组。
 实现：
-12345678910public class Insertion&amp;#123;  	public static void sort(Comparable[] a)&amp;#123;      	int N =">
-<meta property="og:updated_time" content="2017-02-17T09:15:28.000Z">
+12345678910public class Insertion&amp;#123;  	public static void sort(Comparable[] a)&amp;#123;">
+<meta property="og:updated_time" content="2017-02-21T10:06:07.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="算法学习之插入排序">
-<meta name="twitter:description" content="需求：将每一个元素插入到其他已经有序的元素中的适当位置。在计算机的实现中，为了给要插入的元素腾出空间，需要将其余所有元素在插入之前都向右移动一位，这种算法叫插入排序。适用于部分有序数组。
+<meta name="twitter:description" content="需求：将每一个元素a[i]插入到有序的a[i-1],a[i-2],a[i-3]…中。在计算机的实现中，为了给要插入的元素腾出空间，需要将其余所有元素在插入之前都向右移动一位，这种算法叫插入排序。适用于部分有序数组。
 实现：
-12345678910public class Insertion&amp;#123;  	public static void sort(Comparable[] a)&amp;#123;      	int N =">
+12345678910public class Insertion&amp;#123;  	public static void sort(Comparable[] a)&amp;#123;">
 
 
 
@@ -328,7 +328,7 @@
       
 
       
-        <p>需求：将每一个元素插入到其他已经有序的元素中的适当位置。在计算机的实现中，为了给要插入的元素腾出空间，需要将其余所有元素在插入之前都向右移动一位，这种算法叫插入排序。适用于部分有序数组。</p>
+        <p>需求：将每一个元素a[i]插入到有序的a[i-1],a[i-2],a[i-3]…中。在计算机的实现中，为了给要插入的元素腾出空间，需要将其余所有元素在插入之前都向右移动一位，这种算法叫插入排序。适用于部分有序数组。</p>
 <p>实现：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Insertion</span></span>&#123;</div><div class="line">  	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">sort</span><span class="params">(Comparable[] a)</span></span>&#123;</div><div class="line">      	<span class="keyword">int</span> N = a.length;</div><div class="line">      	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; N; i++)&#123;</div><div class="line">          	<span class="keyword">for</span>(<span class="keyword">int</span> j = i; j &gt; <span class="number">0</span>&amp;&amp; less(a[j],a[j-<span class="number">1</span>]); j--)&#123;</div><div class="line">              	exch(a, j, j-<span class="number">1</span>);</div><div class="line">          	&#125;</div><div class="line">      	&#125;</div><div class="line">  	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 
