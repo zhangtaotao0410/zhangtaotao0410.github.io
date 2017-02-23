@@ -84,22 +84,22 @@
 
 
 
-<meta name="description" content="需求：将每一个元素a[i]插入到有序的a[i-1],a[i-2],a[i-3]…中。在计算机的实现中，为了给要插入的元素腾出空间，需要将其余所有元素在插入之前都向右移动一位，这种算法叫插入排序。适用于部分有序数组。
+<meta name="description" content="需求：把任意优先队列变成一种排序方法。用堆来实现一种经典而优雅的排序算法—堆排序。
 实现：
-12345678910public class Insertion&amp;#123;  	public static void sort(Comparable[] a)&amp;#123;">
+12345678910111213141516171819202122232425262728293031323334353637public class MaxPQ&amp;#123;    public static void sort(Comparable[] a)&amp;#123;    int N = a.le">
 <meta property="og:type" content="article">
-<meta property="og:title" content="算法学习之插入排序">
-<meta property="og:url" content="http://yoursite.com/2017/02/17/算法学习之插入排序/index.html">
+<meta property="og:title" content="算法学习之堆排序">
+<meta property="og:url" content="http://yoursite.com/2017/02/23/算法学习之堆排序/index.html">
 <meta property="og:site_name" content="张逃逃'blog">
-<meta property="og:description" content="需求：将每一个元素a[i]插入到有序的a[i-1],a[i-2],a[i-3]…中。在计算机的实现中，为了给要插入的元素腾出空间，需要将其余所有元素在插入之前都向右移动一位，这种算法叫插入排序。适用于部分有序数组。
+<meta property="og:description" content="需求：把任意优先队列变成一种排序方法。用堆来实现一种经典而优雅的排序算法—堆排序。
 实现：
-12345678910public class Insertion&amp;#123;  	public static void sort(Comparable[] a)&amp;#123;">
-<meta property="og:updated_time" content="2017-02-21T10:06:07.000Z">
+12345678910111213141516171819202122232425262728293031323334353637public class MaxPQ&amp;#123;    public static void sort(Comparable[] a)&amp;#123;    int N = a.le">
+<meta property="og:updated_time" content="2017-02-23T07:11:10.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="算法学习之插入排序">
-<meta name="twitter:description" content="需求：将每一个元素a[i]插入到有序的a[i-1],a[i-2],a[i-3]…中。在计算机的实现中，为了给要插入的元素腾出空间，需要将其余所有元素在插入之前都向右移动一位，这种算法叫插入排序。适用于部分有序数组。
+<meta name="twitter:title" content="算法学习之堆排序">
+<meta name="twitter:description" content="需求：把任意优先队列变成一种排序方法。用堆来实现一种经典而优雅的排序算法—堆排序。
 实现：
-12345678910public class Insertion&amp;#123;  	public static void sort(Comparable[] a)&amp;#123;">
+12345678910111213141516171819202122232425262728293031323334353637public class MaxPQ&amp;#123;    public static void sort(Comparable[] a)&amp;#123;    int N = a.le">
 
 
 
@@ -120,9 +120,9 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/02/17/算法学习之插入排序/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/02/23/算法学习之堆排序/"/>
 
-  <title> 算法学习之插入排序 | 张逃逃'blog </title>
+  <title> 算法学习之堆排序 | 张逃逃'blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -262,7 +262,7 @@
             
             
               
-                算法学习之插入排序
+                算法学习之堆排序
               
             
           </h1>
@@ -274,8 +274,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-02-17T17:15:04+08:00" content="2017-02-17">
-              2017-02-17
+            <time itemprop="dateCreated" datetime="2017-02-23T15:10:27+08:00" content="2017-02-23">
+              2017-02-23
             </time>
           </span>
 
@@ -304,8 +304,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2017/02/17/算法学习之插入排序/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/02/17/算法学习之插入排序/" itemprop="commentsCount"></span>
+                <a href="/2017/02/23/算法学习之堆排序/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/02/23/算法学习之堆排序/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -328,9 +328,9 @@
       
 
       
-        <p>需求：将每一个元素a[i]插入到有序的a[i-1],a[i-2],a[i-3]…中。在计算机的实现中，为了给要插入的元素腾出空间，需要将其余所有元素在插入之前都向右移动一位，这种算法叫插入排序。适用于部分有序数组。</p>
+        <p>需求：把任意优先队列变成一种排序方法。用堆来实现一种经典而优雅的排序算法—堆排序。</p>
 <p>实现：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Insertion</span></span>&#123;</div><div class="line">  	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">sort</span><span class="params">(Comparable[] a)</span></span>&#123;</div><div class="line">      	<span class="keyword">int</span> N = a.length;</div><div class="line">      	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; N; i++)&#123;</div><div class="line">          	<span class="keyword">for</span>(<span class="keyword">int</span> j = i; j &gt; <span class="number">0</span>&amp;&amp; less(a[j],a[j-<span class="number">1</span>]); j--)&#123;</div><div class="line">              	exch(a, j, j-<span class="number">1</span>);</div><div class="line">          	&#125;</div><div class="line">      	&#125;</div><div class="line">  	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MaxPQ</span></span>&#123;</div><div class="line">  </div><div class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">sort</span><span class="params">(Comparable[] a)</span></span>&#123;</div><div class="line">    <span class="keyword">int</span> N = a.length;</div><div class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> k = N/<span class="number">2</span>; K&gt;=<span class="number">1</span>; k--)&#123;</div><div class="line">      sink(a,k,N);<span class="comment">//构建堆有序数组</span></div><div class="line">    &#125;</div><div class="line">    <span class="keyword">while</span>(N&gt;<span class="number">1</span>)&#123;</div><div class="line">      exch(a,<span class="number">1</span>,--N);<span class="comment">//首位互换，最大的到末尾</span></div><div class="line">      sink(a,<span class="number">1</span>,N);<span class="comment">//然后把第一个元素下沉到N-1</span></div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">  </div><div class="line">  <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">boolean</span> <span class="title">less</span><span class="params">(<span class="keyword">int</span> i, <span class="keyword">int</span> j)</span></span>&#123;</div><div class="line">    <span class="keyword">return</span> pq[i].compareTo(pq[j]) &lt; <span class="number">0</span>;</div><div class="line">  &#125;</div><div class="line">  <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">exch</span><span class="params">(Comparable[] a, <span class="keyword">int</span> i, <span class="keyword">int</span> j)</span></span>&#123;</div><div class="line">    Comparable t = a[i];</div><div class="line">    a[i] = a[j];</div><div class="line">    a[j] = t;</div><div class="line">  &#125;</div><div class="line">  <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">swim</span><span class="params">(Comparable[] a,<span class="keyword">int</span> k, <span class="keyword">int</span> N)</span></span>&#123;     <span class="comment">//加入元素，由下至上的恢复堆的顺序</span></div><div class="line">    <span class="keyword">while</span>(k &gt; <span class="number">1</span> &amp;&amp; less(k/<span class="number">2</span>,k))&#123;</div><div class="line">      exch(a,k/<span class="number">2</span>,k);</div><div class="line">      k = k/<span class="number">2</span>;</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">  <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">sink</span><span class="params">(Comparable[] a,<span class="keyword">int</span> k, <span class="keyword">int</span> N)</span></span>&#123;    <span class="comment">//删除元素，由上至下恢复堆的顺序</span></div><div class="line">    <span class="keyword">while</span>(<span class="number">2</span>*k&lt;=N)&#123;             <span class="comment">//说明有子节点</span></div><div class="line">      <span class="keyword">int</span> j = <span class="number">2</span>*k;             <span class="comment">//子节点</span></div><div class="line">      <span class="keyword">if</span>(j &lt; N &amp;&amp; less(j, j+<span class="number">1</span>)) j++;  <span class="comment">//比较两个子节点，取最大的子节点</span></div><div class="line">      <span class="keyword">if</span>(!less(k,j)) <span class="keyword">break</span>;           <span class="comment">//如果a[k] 不小于 最大的子节点 跳出循环</span></div><div class="line">      exch(a,k,j);					  <span class="comment">//如果a[k] 小于它的子节点 交换父子节点</span></div><div class="line">      k = j;						  <span class="comment">//把改变父节点位置</span></div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 
       
     </div>
@@ -356,17 +356,13 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/02/17/算法学习之选择排序/" rel="next" title="算法学习之选择排序">
-                <i class="fa fa-chevron-left"></i> 算法学习之选择排序
+              <a href="/2017/02/23/算法学习之优先队列/" rel="next" title="算法学习之优先队列">
+                <i class="fa fa-chevron-left"></i> 算法学习之优先队列
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/02/17/算法学习之希尔排序/" rel="prev" title="算法学习之希尔排序">
-                算法学习之希尔排序 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -381,10 +377,10 @@
 
     <div class="post-spread">
       
-        <div class="ds-share flat" data-thread-key="2017/02/17/算法学习之插入排序/"
-     data-title="算法学习之插入排序"
+        <div class="ds-share flat" data-thread-key="2017/02/23/算法学习之堆排序/"
+     data-title="算法学习之堆排序"
      data-content=""
-     data-url="http://yoursite.com/2017/02/17/算法学习之插入排序/">
+     data-url="http://yoursite.com/2017/02/23/算法学习之堆排序/">
   <div class="ds-share-inline">
     <ul  class="ds-share-icons-16">
 
@@ -411,8 +407,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2017/02/17/算法学习之插入排序/"
-           data-title="算法学习之插入排序" data-url="http://yoursite.com/2017/02/17/算法学习之插入排序/">
+      <div class="ds-thread" data-thread-key="2017/02/23/算法学习之堆排序/"
+           data-title="算法学习之堆排序" data-url="http://yoursite.com/2017/02/23/算法学习之堆排序/">
       </div>
     
   </div>
