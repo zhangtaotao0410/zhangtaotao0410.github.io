@@ -84,22 +84,16 @@
 
 
 
-<meta name="description" content="需求：基于链表数据结构实现背包
-实现：
-12345678910111213141516171819202122232425262728293031import java.util.Iteratorpublic class Bag&amp;lt;Item&amp;gt; implements Iterable&amp;lt;Item&amp;gt;&amp;#123;  	private Node first;  	  	private">
+<meta name="description" content="123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778798081public class BinarrySearchST&amp;lt;Key extends Cop">
 <meta property="og:type" content="article">
-<meta property="og:title" content="算法学习之背包">
-<meta property="og:url" content="http://yoursite.com/2017/02/16/算法学习之背包/index.html">
+<meta property="og:title" content="算法学习之符号表（有序数组实现）">
+<meta property="og:url" content="http://yoursite.com/2017/02/27/算法学习之符号表（有序数组实现）/index.html">
 <meta property="og:site_name" content="张逃逃'blog">
-<meta property="og:description" content="需求：基于链表数据结构实现背包
-实现：
-12345678910111213141516171819202122232425262728293031import java.util.Iteratorpublic class Bag&amp;lt;Item&amp;gt; implements Iterable&amp;lt;Item&amp;gt;&amp;#123;  	private Node first;  	  	private">
-<meta property="og:updated_time" content="2017-02-16T07:08:01.000Z">
+<meta property="og:description" content="123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778798081public class BinarrySearchST&amp;lt;Key extends Cop">
+<meta property="og:updated_time" content="2017-02-27T02:45:56.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="算法学习之背包">
-<meta name="twitter:description" content="需求：基于链表数据结构实现背包
-实现：
-12345678910111213141516171819202122232425262728293031import java.util.Iteratorpublic class Bag&amp;lt;Item&amp;gt; implements Iterable&amp;lt;Item&amp;gt;&amp;#123;  	private Node first;  	  	private">
+<meta name="twitter:title" content="算法学习之符号表（有序数组实现）">
+<meta name="twitter:description" content="123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778798081public class BinarrySearchST&amp;lt;Key extends Cop">
 
 
 
@@ -120,9 +114,9 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/02/16/算法学习之背包/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/02/27/算法学习之符号表（有序数组实现）/"/>
 
-  <title> 算法学习之背包 | 张逃逃'blog </title>
+  <title> 算法学习之符号表（有序数组实现） | 张逃逃'blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -262,7 +256,7 @@
             
             
               
-                算法学习之背包
+                算法学习之符号表（有序数组实现）
               
             
           </h1>
@@ -274,8 +268,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-02-16T15:07:34+08:00" content="2017-02-16">
-              2017-02-16
+            <time itemprop="dateCreated" datetime="2017-02-27T10:45:25+08:00" content="2017-02-27">
+              2017-02-27
             </time>
           </span>
 
@@ -304,8 +298,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2017/02/16/算法学习之背包/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/02/16/算法学习之背包/" itemprop="commentsCount"></span>
+                <a href="/2017/02/27/算法学习之符号表（有序数组实现）/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/02/27/算法学习之符号表（有序数组实现）/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -328,9 +322,7 @@
       
 
       
-        <p>需求：基于链表数据结构实现背包</p>
-<p>实现：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> java.util.Iterator</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Bag</span>&lt;<span class="title">Item</span>&gt; <span class="keyword">implements</span> <span class="title">Iterable</span>&lt;<span class="title">Item</span>&gt;</span>&#123;</div><div class="line">  	<span class="keyword">private</span> Node first;</div><div class="line">  	</div><div class="line">  	<span class="keyword">private</span> <span class="class"><span class="keyword">class</span> <span class="title">Node</span></span>&#123;</div><div class="line">      	Item item;</div><div class="line">      	Node next;</div><div class="line">  	&#125;</div><div class="line">  	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">add</span><span class="params">(Item item)</span></span>&#123;</div><div class="line">      	Node oldfirst = first;</div><div class="line">      	first = <span class="keyword">new</span> Node();</div><div class="line">      	first.item = item;</div><div class="line">      	first.next = oldfirst;</div><div class="line">  	&#125;</div><div class="line">  	<span class="function"><span class="keyword">public</span> Iterator <span class="title">iterator</span><span class="params">()</span></span>&#123;</div><div class="line">      	<span class="keyword">return</span> <span class="keyword">new</span> ListIterator();</div><div class="line">  	&#125;</div><div class="line">  	<span class="keyword">private</span> ListIterator implements Iterator&#123;</div><div class="line">      	<span class="keyword">private</span> Node current = first;</div><div class="line">      	<span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">hasNext</span><span class="params">()</span></span>&#123;</div><div class="line">          	<span class="keyword">return</span> current != <span class="keyword">null</span>;</div><div class="line">      	&#125;</div><div class="line">      	<span class="function"><span class="keyword">public</span> Item <span class="title">next</span><span class="params">()</span></span>&#123;</div><div class="line">          	Item item = current.item;</div><div class="line">          	current = current.next;</div><div class="line">          	<span class="keyword">return</span> item;</div><div class="line">      	&#125;</div><div class="line">      	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">remove</span><span class="params">()</span></span>&#123;&#125;</div><div class="line">  	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+        <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">BinarrySearchST</span>&lt;<span class="title">Key</span> <span class="keyword">extends</span> <span class="title">Coparable</span>&lt;<span class="title">Key</span>&gt;, <span class="title">Value</span>&gt;</span>&#123;</div><div class="line">  <span class="keyword">private</span> Key[] keys;</div><div class="line">  <span class="keyword">private</span> Value[] values;</div><div class="line">  <span class="keyword">private</span> <span class="keyword">int</span> N;</div><div class="line">  <span class="function"><span class="keyword">public</span> <span class="title">BinarrySearchST</span><span class="params">(<span class="keyword">int</span> capacity)</span></span>&#123;</div><div class="line">    keys = (Key[])<span class="keyword">new</span> Comparable[capacity];</div><div class="line">    values =(Value[]) <span class="keyword">new</span> Object[capacity];</div><div class="line">  &#125;</div><div class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">size</span><span class="params">()</span></span>&#123;</div><div class="line">    <span class="keyword">return</span> N;</div><div class="line">  &#125;</div><div class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isEmpty</span><span class="params">()</span></span>&#123;</div><div class="line">    <span class="keyword">return</span> N == <span class="number">0</span>;</div><div class="line">  &#125;</div><div class="line">  <span class="function"><span class="keyword">public</span> Value <span class="title">get</span><span class="params">(Key key)</span></span>&#123;</div><div class="line">    <span class="keyword">if</span>(isEmpty()) <span class="keyword">return</span> <span class="keyword">null</span>;</div><div class="line">    <span class="keyword">int</span> i = rank(key);</div><div class="line">    <span class="keyword">if</span>(i &lt; N &amp;&amp; keys[i].compareTo(key)==<span class="number">0</span>)&#123;</div><div class="line">      <span class="keyword">return</span> values[i];</div><div class="line">    &#125;<span class="keyword">else</span>&#123;</div><div class="line">      <span class="keyword">return</span> <span class="keyword">null</span>;</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">put</span><span class="params">(Key key,Value value)</span></span>&#123;</div><div class="line">    <span class="keyword">int</span> i = rank(key);</div><div class="line">    <span class="keyword">if</span>(i &lt; N&amp;&amp;keys[i].compareTo(key)==<span class="number">0</span>)&#123;</div><div class="line">      values[i] = value;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> j = N; j &gt; i; j--)&#123;</div><div class="line">      keys[j] = keys[j-<span class="number">1</span>];</div><div class="line">      values[j] = values[j-<span class="number">1</span>];</div><div class="line">    &#125;</div><div class="line">    keys[i] = key;</div><div class="line">    values[i] = value;</div><div class="line">    N++;</div><div class="line">  &#125;</div><div class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">rank</span><span class="params">(Key key)</span></span>&#123;</div><div class="line">    <span class="keyword">int</span> lo = <span class="number">0</span>; </div><div class="line">    <span class="keyword">int</span> hi = N -<span class="number">1</span>;</div><div class="line">    <span class="keyword">while</span>(lo&lt;=hi)&#123;</div><div class="line">      <span class="keyword">int</span> mid = lo + (hi - lo)/<span class="number">2</span>;</div><div class="line">      <span class="keyword">int</span> cmp = keys[mid].compareTo(key);</div><div class="line">      <span class="keyword">if</span>(cmp == <span class="number">0</span>)&#123;</div><div class="line">        <span class="keyword">return</span> mid;</div><div class="line">      &#125;<span class="keyword">else</span> <span class="keyword">if</span>(cmp &gt; <span class="number">0</span>)&#123;</div><div class="line">        hi = mid -<span class="number">1</span>;</div><div class="line">      &#125;<span class="keyword">else</span>&#123;</div><div class="line">        lo = mid +<span class="number">1</span>;</div><div class="line">      &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> lo;</div><div class="line">  &#125;</div><div class="line"> </div><div class="line">  <span class="function"><span class="keyword">public</span> Key <span class="title">min</span><span class="params">()</span></span>&#123;</div><div class="line">    <span class="keyword">return</span> keys[<span class="number">0</span>];</div><div class="line">  &#125;</div><div class="line">  <span class="function"><span class="keyword">public</span> Key <span class="title">max</span><span class="params">()</span></span>&#123;</div><div class="line">    <span class="keyword">return</span> keys[N -<span class="number">1</span>];</div><div class="line">  &#125;</div><div class="line">  <span class="function"><span class="keyword">public</span> Key <span class="title">select</span><span class="params">(<span class="keyword">int</span> k)</span></span>&#123;</div><div class="line">    <span class="keyword">return</span> keys[k];</div><div class="line">  &#125;</div><div class="line">  <span class="function"><span class="keyword">public</span> Key <span class="title">ceiling</span><span class="params">(Key key)</span></span>&#123; <span class="comment">//大于等于key的最小值</span></div><div class="line">    <span class="keyword">int</span> i = rank(key);</div><div class="line">    <span class="keyword">return</span> keys[i];</div><div class="line">  &#125;</div><div class="line">  <span class="function"><span class="keyword">public</span> Key <span class="title">floor</span><span class="params">(Key key)</span></span>&#123;   <span class="comment">//小于等于key的最大值</span></div><div class="line">    <span class="keyword">int</span> i = rank(key);</div><div class="line">    <span class="keyword">return</span> keys[i];</div><div class="line">  &#125;</div><div class="line">  <span class="function"><span class="keyword">public</span> Iterable&lt;Key&gt; <span class="title">keys</span><span class="params">(Key lo, Key hi)</span></span>&#123;</div><div class="line">    Queue&lt;Key&gt; q = <span class="keyword">new</span> Queue&lt;Key&gt;();</div><div class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = rank(lo); i &lt; rank(hi); i++)&#123;</div><div class="line">      q.enqueue(keys[i]);</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">if</span>(contains(hi))&#123;</div><div class="line">      q.enqueue(keys[hi]);</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> q;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 
       
     </div>
@@ -356,17 +348,13 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/02/16/算法学习之队列（链表实现）/" rel="next" title="算法学习之队列（链表实现）">
-                <i class="fa fa-chevron-left"></i> 算法学习之队列（链表实现）
+              <a href="/2017/02/27/算法学习之符号表（无序链表实现）/" rel="next" title="算法学习之符号表（无序链表实现）">
+                <i class="fa fa-chevron-left"></i> 算法学习之符号表（无序链表实现）
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/02/16/算法学习之union-find算法/" rel="prev" title="算法学习之union_find算法">
-                算法学习之union_find算法 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -381,10 +369,10 @@
 
     <div class="post-spread">
       
-        <div class="ds-share flat" data-thread-key="2017/02/16/算法学习之背包/"
-     data-title="算法学习之背包"
+        <div class="ds-share flat" data-thread-key="2017/02/27/算法学习之符号表（有序数组实现）/"
+     data-title="算法学习之符号表（有序数组实现）"
      data-content=""
-     data-url="http://yoursite.com/2017/02/16/算法学习之背包/">
+     data-url="http://yoursite.com/2017/02/27/算法学习之符号表（有序数组实现）/">
   <div class="ds-share-inline">
     <ul  class="ds-share-icons-16">
 
@@ -411,8 +399,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2017/02/16/算法学习之背包/"
-           data-title="算法学习之背包" data-url="http://yoursite.com/2017/02/16/算法学习之背包/">
+      <div class="ds-thread" data-thread-key="2017/02/27/算法学习之符号表（有序数组实现）/"
+           data-title="算法学习之符号表（有序数组实现）" data-url="http://yoursite.com/2017/02/27/算法学习之符号表（有序数组实现）/">
       </div>
     
   </div>
