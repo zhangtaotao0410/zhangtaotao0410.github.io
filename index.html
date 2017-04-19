@@ -258,6 +258,106 @@
             
               
                 
+                <a class="post-title-link" href="/2017/04/18/算法学习之符号表（红黑树实现）/" itemprop="url">
+                  算法学习之符号表（红黑树实现）
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-04-18T17:52:30+08:00" content="2017-04-18">
+              2017-04-18
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2017/04/18/算法学习之符号表（红黑树实现）/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/04/18/算法学习之符号表（红黑树实现）/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+          
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2017/02/27/算法学习之符号表（二叉查找树实现）/" itemprop="url">
                   算法学习之符号表（二叉查找树实现）
                 </a>
@@ -330,7 +430,7 @@
           
             <p>定义：一棵<strong>二叉查找树（BST）</strong>是一棵二叉树，其中每个结点都含有一个Comparable的键（以及相关联的值）且每个结点的键都大于其左子树的任意结点的键而小于右子树的任意结点的键。</p>
 <p>实现：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div><div class="line">133</div><div class="line">134</div><div class="line">135</div><div class="line">136</div><div class="line">137</div><div class="line">138</div><div class="line">139</div><div class="line">140</div><div class="line">141</div><div class="line">142</div><div class="line">143</div><div class="line">144</div><div class="line">145</div><div class="line">146</div><div class="line">147</div><div class="line">148</div><div class="line">149</div><div class="line">150</div><div class="line">151</div><div class="line">152</div><div class="line">153</div><div class="line">154</div><div class="line">155</div><div class="line">156</div><div class="line">157</div><div class="line">158</div><div class="line">159</div><div class="line">160</div><div class="line">161</div><div class="line">162</div><div class="line">163</div><div class="line">164</div><div class="line">165</div><div class="line">166</div><div class="line">167</div><div class="line">168</div><div class="line">169</div><div class="line">170</div><div class="line">171</div><div class="line">172</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">BST</span>&lt;<span class="title">Key</span> <span class="keyword">extends</span> <span class="title">Comparable</span>&lt;<span class="title">Key</span>&gt;, <span class="title">Value</span>&gt;</span>&#123;</div><div class="line">  <span class="keyword">private</span> Node root;</div><div class="line">  <span class="keyword">private</span> <span class="class"><span class="keyword">class</span> <span class="title">Node</span></span>&#123;</div><div class="line">     key key;</div><div class="line">     Value value;</div><div class="line">     <span class="keyword">int</span> N;</div><div class="line">     Node left;</div><div class="line">     Node right;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Node</span><span class="params">(Key key, Value value, <span class="keyword">int</span> N)</span></span>&#123;</div><div class="line">      <span class="keyword">this</span>.key = key;</div><div class="line">      <span class="keyword">this</span>.value = value;</div><div class="line">      <span class="keyword">this</span>.N = N;</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">size</span><span class="params">()</span></span>&#123;</div><div class="line">    <span class="keyword">return</span> size(root);</div><div class="line">  &#125;</div><div class="line">  <span class="function"><span class="keyword">private</span> <span class="keyword">int</span> <span class="title">size</span><span class="params">(Node x)</span></span>&#123;</div><div class="line">    <span class="keyword">if</span>(x == <span class="keyword">null</span>)&#123;</div><div class="line">      <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">    &#125;<span class="keyword">else</span>&#123;</div><div class="line">      <span class="keyword">return</span> n.N;</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">  <span class="function"><span class="keyword">public</span> Value <span class="title">get</span><span class="params">(Key key)</span></span>&#123;</div><div class="line">    <span class="keyword">return</span> get(root, key);</div><div class="line">  &#125;</div><div class="line">  <span class="function"><span class="keyword">private</span> Value <span class="title">get</span><span class="params">(Node x, Key key)</span></span>&#123;</div><div class="line">    <span class="keyword">if</span>(x == <span class="keyword">null</span>) <span class="keyword">return</span> <span class="keyword">null</span>;</div><div class="line">    <span class="keyword">int</span> cmp = key.compareTo(x.key);</div><div class="line">    <span class="keyword">if</span>(cmp&lt;<span class="number">0</span>)&#123;</div><div class="line">     <span class="keyword">return</span> get(x.left,key);</div><div class="line">    &#125;<span class="keyword">else</span> <span class="keyword">if</span>(cmp&gt;<span class="number">0</span>)&#123;</div><div class="line">      <span class="keyword">return</span> get(x.right, key);</div><div class="line">    &#125;<span class="keyword">else</span>&#123;</div><div class="line">      <span class="keyword">return</span> x.value;</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">put</span><span class="params">(Key key, Value value)</span></span>&#123;</div><div class="line">    root = put(root, key, value);</div><div class="line">  &#125;</div><div class="line">  <span class="function"><span class="keyword">private</span> Node <span class="title">put</span><span class="params">(Node x, Key key, Value value)</span></span>&#123;</div><div class="line">    <span class="keyword">if</span>(x == <span class="keyword">null</span>)&#123;</div><div class="line">      x = <span class="keyword">new</span> Node(key, value, <span class="number">1</span>);</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">int</span> cmp = key.compareTo(x.key);</div><div class="line">    <span class="keyword">if</span>(cmp&lt;<span class="number">0</span>)&#123;</div><div class="line">      x.left = put(x.left, key, value);</div><div class="line">    &#125;<span class="keyword">else</span> <span class="keyword">if</span>(cmp&gt;<span class="number">0</span>)&#123;</div><div class="line">      x.right = put(x.right, key,value);</div><div class="line">    &#125;<span class="keyword">else</span>&#123;</div><div class="line">      x.value = value;</div><div class="line">    &#125;</div><div class="line">    x.N = size(x.left+x.right+<span class="number">1</span>);</div><div class="line">    <span class="keyword">return</span> x;</div><div class="line">  &#125;</div><div class="line">  <span class="function"><span class="keyword">public</span> Key <span class="title">min</span><span class="params">()</span></span>&#123;</div><div class="line">    <span class="keyword">return</span> min(root).key;</div><div class="line">  &#125;</div><div class="line">  <span class="function"><span class="keyword">private</span> Node <span class="title">min</span><span class="params">(Node x)</span></span>&#123;</div><div class="line">    <span class="keyword">if</span>(x.left == <span class="keyword">null</span>) <span class="keyword">return</span> x;</div><div class="line">    <span class="keyword">return</span> min(x.left);</div><div class="line">  &#125;</div><div class="line">  <span class="function"><span class="keyword">public</span> Key <span class="title">floor</span><span class="params">(Key key)</span></span>&#123;</div><div class="line">    Node x = floor(root, key);</div><div class="line">    <span class="keyword">if</span>(x == <span class="keyword">null</span>) <span class="keyword">return</span> <span class="keyword">null</span>;</div><div class="line">    <span class="keyword">return</span> x.key;</div><div class="line">  &#125;</div><div class="line">  <span class="function"><span class="keyword">private</span> Node <span class="title">floor</span><span class="params">(Node x, Key key)</span></span>&#123;</div><div class="line">    <span class="keyword">if</span>(x == <span class="keyword">null</span>) <span class="keyword">return</span> <span class="keyword">null</span>;</div><div class="line">    <span class="keyword">int</span> cmp = key.compareTo(x.key);</div><div class="line">    <span class="keyword">if</span>(cmp &lt; <span class="number">0</span>)&#123;</div><div class="line">      <span class="keyword">return</span> floor(x.left, key);</div><div class="line">    &#125;<span class="keyword">else</span>&#123;</div><div class="line">      <span class="keyword">return</span> x.key;</div><div class="line">    &#125;</div><div class="line">    Node t = floor(x.right, key);</div><div class="line">    <span class="keyword">if</span>(t!=<span class="keyword">null</span>)&#123;</div><div class="line">      <span class="keyword">return</span> t;</div><div class="line">    &#125;<span class="keyword">else</span>&#123;</div><div class="line">      <span class="keyword">return</span> x;</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">  <span class="function"><span class="keyword">public</span> Key <span class="title">select</span><span class="params">(<span class="keyword">int</span> k)</span></span>&#123;</div><div class="line">    <span class="keyword">return</span> select(root, k).key;</div><div class="line">  &#125;</div><div class="line">  <span class="function"><span class="keyword">private</span> Node <span class="title">select</span><span class="params">(Node x, <span class="keyword">int</span> k)</span></span>&#123;</div><div class="line">    <span class="keyword">if</span>(x == <span class="keyword">null</span>) <span class="keyword">return</span> <span class="keyword">null</span>;</div><div class="line">    <span class="keyword">int</span> t = size(x.left);</div><div class="line">    <span class="keyword">if</span>(t&gt;k)&#123;</div><div class="line">      <span class="keyword">return</span> select(x.left, k);</div><div class="line">    &#125;<span class="keyword">else</span> <span class="keyword">if</span>(t&lt;k)&#123;</div><div class="line">      <span class="keyword">return</span> select(x.right, k-t-<span class="number">1</span>);</div><div class="line">    &#125;<span class="keyword">else</span>&#123;</div><div class="line">      <span class="keyword">return</span> x;</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">rank</span><span class="params">(Key key)</span></span>&#123;</div><div class="line">    <span class="keyword">return</span> rank(key,root);</div><div class="line">  &#125;</div><div class="line">  <span class="function"><span class="keyword">private</span> <span class="keyword">int</span> <span class="title">rank</span><span class="params">(Key key, Node x)</span></span>&#123;</div><div class="line">    <span class="keyword">if</span>(x == <span class="keyword">null</span>) <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">    <span class="keyword">int</span> cmp = key.compareTo(x.key);</div><div class="line">    <span class="keyword">if</span>(cmp&lt;<span class="number">0</span>)&#123;</div><div class="line">      <span class="keyword">return</span> rank(key,x.left);</div><div class="line">    &#125;<span class="keyword">else</span> <span class="keyword">if</span>(cmp&gt;<span class="number">0</span>)&#123;</div><div class="line">      <span class="keyword">return</span> <span class="number">1</span>+size(x.left)+rank(key,x.right);</div><div class="line">    &#125;<span class="keyword">else</span>&#123;</div><div class="line">      <span class="keyword">return</span> size(x.left);</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">deleteMin</span><span class="params">()</span></span>&#123;</div><div class="line">    deleteMin(root);</div><div class="line">  &#125;</div><div class="line">  <span class="function"><span class="keyword">private</span> Node <span class="title">deleteMin</span><span class="params">(Node x)</span></span>&#123;</div><div class="line">    <span class="keyword">if</span>(x.left == <span class="keyword">null</span>) <span class="keyword">return</span> x.right;</div><div class="line">    x.left = deleteMin(x.left);</div><div class="line">    x.N = size(x.left)+size(x.right)+<span class="number">1</span>;</div><div class="line">    <span class="keyword">return</span> x;</div><div class="line">  &#125;</div><div class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">delete</span><span class="params">(Key key)</span></span>&#123;</div><div class="line">    delete(root, key);</div><div class="line">  &#125;</div><div class="line">  <span class="function"><span class="keyword">private</span> Node <span class="title">delete</span><span class="params">(Node x, Key key)</span></span>&#123;</div><div class="line">    <span class="keyword">if</span>(x == <span class="keyword">null</span>)&#123;</div><div class="line">      <span class="keyword">return</span> <span class="keyword">null</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">int</span> cmp = key.compareTo(x.key);</div><div class="line">    <span class="keyword">if</span>(cmp&lt;<span class="number">0</span>)&#123;</div><div class="line">      x.left = delete(x.left, key);</div><div class="line">    &#125;<span class="keyword">else</span> <span class="keyword">if</span>(cmp&gt;<span class="number">0</span>)&#123;</div><div class="line">      x.right = delete(x.right, key);</div><div class="line">    &#125;<span class="keyword">else</span>&#123;</div><div class="line">      <span class="keyword">if</span>(x.left == <span class="keyword">null</span>)&#123;</div><div class="line">        <span class="keyword">return</span> x.right;</div><div class="line">      &#125;<span class="keyword">else</span> <span class="keyword">if</span>(x.right == <span class="keyword">null</span>)&#123;</div><div class="line">        <span class="keyword">return</span> x.left;</div><div class="line">      &#125;<span class="keyword">else</span>&#123;</div><div class="line">        Node t = x;</div><div class="line">        x = min(t,right);</div><div class="line">        x.right = deleteMin(t.right);</div><div class="line">        x.left = t.left;</div><div class="line">      &#125;</div><div class="line">    &#125;</div><div class="line">    x.N = size(x.left)+size(x.right)+<span class="number">1</span></div><div class="line">    <span class="keyword">return</span> x;</div><div class="line">  &#125;</div><div class="line">  <span class="function"><span class="keyword">public</span> Iterable&lt;Key&gt; <span class="title">keys</span><span class="params">()</span></span>&#123;</div><div class="line">    <span class="keyword">return</span> keys(min(), max());</div><div class="line">  &#125;</div><div class="line">  <span class="function"><span class="keyword">public</span> Iterable&lt;Key&gt; <span class="title">keys</span><span class="params">(Key lo, Kye hi)</span></span>&#123;</div><div class="line">    Queue&lt;Key&gt; queue = <span class="keyword">new</span> Queue&lt;Key&gt;();</div><div class="line">    keys(root, queue, lo, hi);</div><div class="line">    <span class="keyword">return</span> queue;</div><div class="line">  &#125;</div><div class="line">  <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">keys</span><span class="params">(Node x, Queue&lt;Key&gt; queue, Key lo, Key hi)</span></span>&#123;</div><div class="line">    <span class="keyword">if</span>(x==<span class="keyword">null</span>)&#123;</div><div class="line">      <span class="keyword">return</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">int</span> cmplo = lo.compareTo(x.key);</div><div class="line">    <span class="keyword">int</span> comhi = hi.compareTo(x.key);</div><div class="line">    <span class="keyword">if</span>(comlo&lt;<span class="number">0</span>)&#123;</div><div class="line">      keys(x.left,queue,lo,hi);</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">if</span>(comlo&lt;=<span class="number">0</span>&amp;&amp;comhi&gt;=<span class="number">0</span>)&#123;</div><div class="line">      queue.enqueue(x.key);</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">if</span>(comhi&gt;<span class="number">0</span>)&#123;</div><div class="line">      keys(x.right,queue,lo,hi);</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div><div class="line">133</div><div class="line">134</div><div class="line">135</div><div class="line">136</div><div class="line">137</div><div class="line">138</div><div class="line">139</div><div class="line">140</div><div class="line">141</div><div class="line">142</div><div class="line">143</div><div class="line">144</div><div class="line">145</div><div class="line">146</div><div class="line">147</div><div class="line">148</div><div class="line">149</div><div class="line">150</div><div class="line">151</div><div class="line">152</div><div class="line">153</div><div class="line">154</div><div class="line">155</div><div class="line">156</div><div class="line">157</div><div class="line">158</div><div class="line">159</div><div class="line">160</div><div class="line">161</div><div class="line">162</div><div class="line">163</div><div class="line">164</div><div class="line">165</div><div class="line">166</div><div class="line">167</div><div class="line">168</div><div class="line">169</div><div class="line">170</div><div class="line">171</div><div class="line">172</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">BST</span>&lt;<span class="title">Key</span> <span class="keyword">extends</span> <span class="title">Comparable</span>&lt;<span class="title">Key</span>&gt;, <span class="title">Value</span>&gt;</span>&#123;</div><div class="line">  <span class="keyword">private</span> Node root;</div><div class="line">  <span class="keyword">private</span> <span class="class"><span class="keyword">class</span> <span class="title">Node</span></span>&#123;</div><div class="line">     key key;</div><div class="line">     Value value;</div><div class="line">     <span class="keyword">int</span> N;</div><div class="line">     Node left;</div><div class="line">     Node right;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Node</span><span class="params">(Key key, Value value, <span class="keyword">int</span> N)</span></span>&#123;</div><div class="line">      <span class="keyword">this</span>.key = key;</div><div class="line">      <span class="keyword">this</span>.value = value;</div><div class="line">      <span class="keyword">this</span>.N = N;</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">size</span><span class="params">()</span></span>&#123;</div><div class="line">    <span class="keyword">return</span> size(root);</div><div class="line">  &#125;</div><div class="line">  <span class="function"><span class="keyword">private</span> <span class="keyword">int</span> <span class="title">size</span><span class="params">(Node x)</span></span>&#123;</div><div class="line">    <span class="keyword">if</span>(x == <span class="keyword">null</span>)&#123;</div><div class="line">      <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">    &#125;<span class="keyword">else</span>&#123;</div><div class="line">      <span class="keyword">return</span> n.N;</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">  <span class="function"><span class="keyword">public</span> Value <span class="title">get</span><span class="params">(Key key)</span></span>&#123;</div><div class="line">    <span class="keyword">return</span> get(root, key);</div><div class="line">  &#125;</div><div class="line">  <span class="function"><span class="keyword">private</span> Value <span class="title">get</span><span class="params">(Node x, Key key)</span></span>&#123;</div><div class="line">    <span class="keyword">if</span>(x == <span class="keyword">null</span>) <span class="keyword">return</span> <span class="keyword">null</span>;</div><div class="line">    <span class="keyword">int</span> cmp = key.compareTo(x.key);</div><div class="line">    <span class="keyword">if</span>(cmp&lt;<span class="number">0</span>)&#123;</div><div class="line">     <span class="keyword">return</span> get(x.left,key);</div><div class="line">    &#125;<span class="keyword">else</span> <span class="keyword">if</span>(cmp&gt;<span class="number">0</span>)&#123;</div><div class="line">      <span class="keyword">return</span> get(x.right, key);</div><div class="line">    &#125;<span class="keyword">else</span>&#123;</div><div class="line">      <span class="keyword">return</span> x.value;</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">put</span><span class="params">(Key key, Value value)</span></span>&#123;</div><div class="line">    root = put(root, key, value);</div><div class="line">  &#125;</div><div class="line">  <span class="function"><span class="keyword">private</span> Node <span class="title">put</span><span class="params">(Node x, Key key, Value value)</span></span>&#123;</div><div class="line">    <span class="keyword">if</span>(x == <span class="keyword">null</span>)&#123;</div><div class="line">      x = <span class="keyword">new</span> Node(key, value, <span class="number">1</span>);</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">int</span> cmp = key.compareTo(x.key);</div><div class="line">    <span class="keyword">if</span>(cmp&lt;<span class="number">0</span>)&#123;</div><div class="line">      x.left = put(x.left, key, value);</div><div class="line">    &#125;<span class="keyword">else</span> <span class="keyword">if</span>(cmp&gt;<span class="number">0</span>)&#123;</div><div class="line">      x.right = put(x.right, key,value);</div><div class="line">    &#125;<span class="keyword">else</span>&#123;</div><div class="line">      x.value = value;</div><div class="line">    &#125;</div><div class="line">    x.N = size(x.left+x.right+<span class="number">1</span>);</div><div class="line">    <span class="keyword">return</span> x;</div><div class="line">  &#125;</div><div class="line">  <span class="function"><span class="keyword">public</span> Key <span class="title">min</span><span class="params">()</span></span>&#123;</div><div class="line">    <span class="keyword">return</span> min(root).key;</div><div class="line">  &#125;</div><div class="line">  <span class="function"><span class="keyword">private</span> Node <span class="title">min</span><span class="params">(Node x)</span></span>&#123;</div><div class="line">    <span class="keyword">if</span>(x.left == <span class="keyword">null</span>) <span class="keyword">return</span> x;</div><div class="line">    <span class="keyword">return</span> min(x.left);</div><div class="line">  &#125;</div><div class="line">  <span class="function"><span class="keyword">public</span> Key <span class="title">floor</span><span class="params">(Key key)</span></span>&#123;</div><div class="line">    Node x = floor(root, key);</div><div class="line">    <span class="keyword">if</span>(x == <span class="keyword">null</span>) <span class="keyword">return</span> <span class="keyword">null</span>;</div><div class="line">    <span class="keyword">return</span> x.key;</div><div class="line">  &#125;</div><div class="line">  <span class="function"><span class="keyword">private</span> Node <span class="title">floor</span><span class="params">(Node x, Key key)</span></span>&#123;</div><div class="line">    <span class="keyword">if</span>(x == <span class="keyword">null</span>) <span class="keyword">return</span> <span class="keyword">null</span>;</div><div class="line">    <span class="keyword">int</span> cmp = key.compareTo(x.key);</div><div class="line">    <span class="keyword">if</span>(cmp &lt; <span class="number">0</span>)&#123;</div><div class="line">      <span class="keyword">return</span> floor(x.left, key);</div><div class="line">    &#125;<span class="keyword">else</span>&#123;</div><div class="line">      <span class="keyword">return</span> x.key;</div><div class="line">    &#125;</div><div class="line">    Node t = floor(x.right, key);</div><div class="line">    <span class="keyword">if</span>(t!=<span class="keyword">null</span>)&#123;</div><div class="line">      <span class="keyword">return</span> t;</div><div class="line">    &#125;<span class="keyword">else</span>&#123;</div><div class="line">      <span class="keyword">return</span> x;</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">  <span class="function"><span class="keyword">public</span> Key <span class="title">select</span><span class="params">(<span class="keyword">int</span> k)</span></span>&#123;</div><div class="line">    <span class="keyword">return</span> select(root, k).key;</div><div class="line">  &#125;</div><div class="line">  <span class="function"><span class="keyword">private</span> Node <span class="title">select</span><span class="params">(Node x, <span class="keyword">int</span> k)</span></span>&#123;</div><div class="line">    <span class="keyword">if</span>(x == <span class="keyword">null</span>) <span class="keyword">return</span> <span class="keyword">null</span>;</div><div class="line">    <span class="keyword">int</span> t = size(x.left);</div><div class="line">    <span class="keyword">if</span>(t&gt;k)&#123;</div><div class="line">      <span class="keyword">return</span> select(x.left, k);</div><div class="line">    &#125;<span class="keyword">else</span> <span class="keyword">if</span>(t&lt;k)&#123;</div><div class="line">      <span class="keyword">return</span> select(x.right, k-t-<span class="number">1</span>);</div><div class="line">    &#125;<span class="keyword">else</span>&#123;</div><div class="line">      <span class="keyword">return</span> x;</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">rank</span><span class="params">(Key key)</span></span>&#123;</div><div class="line">    <span class="keyword">return</span> rank(key,root);</div><div class="line">  &#125;</div><div class="line">  <span class="function"><span class="keyword">private</span> <span class="keyword">int</span> <span class="title">rank</span><span class="params">(Key key, Node x)</span></span>&#123;</div><div class="line">    <span class="keyword">if</span>(x == <span class="keyword">null</span>) <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">    <span class="keyword">int</span> cmp = key.compareTo(x.key);</div><div class="line">    <span class="keyword">if</span>(cmp&lt;<span class="number">0</span>)&#123;</div><div class="line">      <span class="keyword">return</span> rank(key,x.left);</div><div class="line">    &#125;<span class="keyword">else</span> <span class="keyword">if</span>(cmp&gt;<span class="number">0</span>)&#123;</div><div class="line">      <span class="keyword">return</span> <span class="number">1</span>+size(x.left)+rank(key,x.right);</div><div class="line">    &#125;<span class="keyword">else</span>&#123;</div><div class="line">      <span class="keyword">return</span> size(x.left);</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">deleteMin</span><span class="params">()</span></span>&#123;</div><div class="line">    root = deleteMin(root);</div><div class="line">  &#125;</div><div class="line">  <span class="function"><span class="keyword">private</span> Node <span class="title">deleteMin</span><span class="params">(Node x)</span></span>&#123;</div><div class="line">    <span class="keyword">if</span>(x.left == <span class="keyword">null</span>) <span class="keyword">return</span> x.right;</div><div class="line">    x.left = deleteMin(x.left);</div><div class="line">    x.N = size(x.left)+size(x.right)+<span class="number">1</span>;</div><div class="line">    <span class="keyword">return</span> x;</div><div class="line">  &#125;</div><div class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">delete</span><span class="params">(Key key)</span></span>&#123;</div><div class="line">    root = delete(root, key);</div><div class="line">  &#125;</div><div class="line">  <span class="function"><span class="keyword">private</span> Node <span class="title">delete</span><span class="params">(Node x, Key key)</span></span>&#123;</div><div class="line">    <span class="keyword">if</span>(x == <span class="keyword">null</span>)&#123;</div><div class="line">      <span class="keyword">return</span> <span class="keyword">null</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">int</span> cmp = key.compareTo(x.key);</div><div class="line">    <span class="keyword">if</span>(cmp&lt;<span class="number">0</span>)&#123;</div><div class="line">      x.left = delete(x.left, key);</div><div class="line">    &#125;<span class="keyword">else</span> <span class="keyword">if</span>(cmp&gt;<span class="number">0</span>)&#123;</div><div class="line">      x.right = delete(x.right, key);</div><div class="line">    &#125;<span class="keyword">else</span>&#123;</div><div class="line">      <span class="keyword">if</span>(x.left == <span class="keyword">null</span>)&#123;</div><div class="line">        <span class="keyword">return</span> x.right;</div><div class="line">      &#125;<span class="keyword">else</span> <span class="keyword">if</span>(x.right == <span class="keyword">null</span>)&#123;</div><div class="line">        <span class="keyword">return</span> x.left;</div><div class="line">      &#125;<span class="keyword">else</span>&#123;</div><div class="line">        Node t = x;</div><div class="line">        x = min(t,right);</div><div class="line">        x.right = deleteMin(t.right);</div><div class="line">        x.left = t.left;</div><div class="line">      &#125;</div><div class="line">    &#125;</div><div class="line">    x.N = size(x.left)+size(x.right)+<span class="number">1</span></div><div class="line">    <span class="keyword">return</span> x;</div><div class="line">  &#125;</div><div class="line">  <span class="function"><span class="keyword">public</span> Iterable&lt;Key&gt; <span class="title">keys</span><span class="params">()</span></span>&#123;</div><div class="line">    <span class="keyword">return</span> keys(min(), max());</div><div class="line">  &#125;</div><div class="line">  <span class="function"><span class="keyword">public</span> Iterable&lt;Key&gt; <span class="title">keys</span><span class="params">(Key lo, Kye hi)</span></span>&#123;</div><div class="line">    Queue&lt;Key&gt; queue = <span class="keyword">new</span> Queue&lt;Key&gt;();</div><div class="line">    keys(root, queue, lo, hi);</div><div class="line">    <span class="keyword">return</span> queue;</div><div class="line">  &#125;</div><div class="line">  <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">keys</span><span class="params">(Node x, Queue&lt;Key&gt; queue, Key lo, Key hi)</span></span>&#123;</div><div class="line">    <span class="keyword">if</span>(x==<span class="keyword">null</span>)&#123;</div><div class="line">      <span class="keyword">return</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">int</span> cmplo = lo.compareTo(x.key);</div><div class="line">    <span class="keyword">int</span> comhi = hi.compareTo(x.key);</div><div class="line">    <span class="keyword">if</span>(comlo&lt;<span class="number">0</span>)&#123;</div><div class="line">      keys(x.left,queue,lo,hi);</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">if</span>(comlo&lt;=<span class="number">0</span>&amp;&amp;comhi&gt;=<span class="number">0</span>)&#123;</div><div class="line">      queue.enqueue(x.key);</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">if</span>(comhi&gt;<span class="number">0</span>)&#123;</div><div class="line">      keys(x.right,queue,lo,hi);</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 
           
         
@@ -1341,128 +1441,6 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/02/17/算法学习之选择排序/" itemprop="url">
-                  算法学习之选择排序
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-02-17T17:12:47+08:00" content="2017-02-17">
-              2017-02-17
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/算法/" itemprop="url" rel="index">
-                    <span itemprop="name">算法</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2017/02/17/算法学习之选择排序/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/02/17/算法学习之选择排序/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-          
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>需求：从小到大排列数组元素，其中每个元素都有一个主键。选择排序是：首先找出数组中最小的那个元素，其次，将它跟数组中的第一个元素交换位置，再次，在剩下的元素中找出最小的元素，将它与数组中第二个元素交换位置。如此直至整个数组排序完毕。（因为他不断的在剩余元素中找最小的元素，所有叫选择排序）。该算法将第i小的元素放入到a[i]中，数组的第i个位置的左边是i个最小的元素且他们不会再被访问。</p>
-<p>实现：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Selection</span></span>&#123;</div><div class="line">  	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">sort</span><span class="params">(Comparable[] a)</span></span>&#123;</div><div class="line">      	<span class="keyword">int</span> N = a.length;</div><div class="line">      	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; N; i++)&#123;</div><div class="line">          	<span class="keyword">int</span> min = i;</div><div class="line">          	<span class="keyword">for</span>(<span class="keyword">int</span> j = i + <span class="number">1</span>; j &lt; N; j++)&#123;</div><div class="line">              	<span class="keyword">if</span>(less(a[j],a[min])) min = j;</div><div class="line">          	&#125;</div><div class="line">            exch(a, i, min);</div><div class="line">      	&#125;</div><div class="line">  	&#125;</div><div class="line"> 	<span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">boolean</span> <span class="title">less</span><span class="params">(Comparable v, Comparable w)</span></span>&#123;</div><div class="line">      	<span class="keyword">return</span> v.compareTo(w) &lt; <span class="number">0</span>;</div><div class="line"> 	&#125;</div><div class="line">  	<span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">exch</span><span class="params">(Comparable[] a, <span class="keyword">int</span> i, <span class="keyword">int</span> j)</span></span>&#123;</div><div class="line">      	Comparable temp = a[i];</div><div class="line">      	a[i] = a[j];</div><div class="line">      	a[j] = temp;</div><div class="line">  	&#125;</div><div class="line">  	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">boolean</span> <span class="title">isSorted</span><span class="params">(Comparable[] a)</span></span>&#123;</div><div class="line">      	<span class="keyword">int</span> N = a.length;</div><div class="line">      	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; N; i++)&#123;</div><div class="line">          	<span class="keyword">if</span>(less(a[i],a[i-<span class="number">1</span>])) <span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line">      	&#125;</div><div class="line">  	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1508,7 +1486,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">25</span>
+              <span class="site-state-item-count">26</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>

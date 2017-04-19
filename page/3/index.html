@@ -258,6 +258,131 @@
             
               
                 
+                <a class="post-title-link" href="/2016/08/29/java代码优化/" itemprop="url">
+                  java代码优化
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-08-29T10:28:17+08:00" content="2016-08-29">
+              2016-08-29
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/java/" itemprop="url" rel="index">
+                    <span itemprop="name">java</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/08/29/java代码优化/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/29/java代码优化/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+          
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h1 id="java代码优化-转"><a href="#java代码优化-转" class="headerlink" title="java代码优化[转]"></a>java代码优化[转]</h1><h2 id="原文地址"><a href="#原文地址" class="headerlink" title="原文地址"></a><a href="http://www.cnblogs.com/xrq730/p/4865416.html">原文地址</a></h2><p>2016年3月修改，结合自己的工作和平时学习的体验重新谈一下为什么要进行代码优化。在修改之前，我的说法是这样的：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">就像鲸鱼吃虾米一样，也许吃一个两个虾米对于鲸鱼来说作用不大，但是吃的虾米多了，鲸鱼自然饱了。</div><div class="line">代码优化一样，也许一个两个的优化，对于提升代码的运行效率意义不大，但是只要处处都能注意代码优化，总体来说对于提升代码的运行效率就很有用了。</div></pre></td></tr></table></figure>
+<p>这个观点，在现在看来，是要进行代码优化的一个原因，但不全对。在机械工艺发展的今天，服务器动辄8核、16核，64位CPU，代码执行效率非常高，StringBuilder替换StringBuffer、ArrayList替换Vector，对于代码运行效率的提升是微乎其微的，即使是项目中的每个点都注意到了，代码运行也看不出什么明显的变化。</p>
+<p>我认为，代码优化的最重要的作用应该是：避免未知的错误。在代码上线运行的过程中，往往会出现很多我们意想不到的错误，因为线上环境和开发环境是非常不同的，错误定位到最后往往是一个非常小的原因。然而为了解决这个错误，我们需要先自验证、再打包出待替换的class文件、暂停业务并重启，对于一个成熟的项目而言，最后一条其实影响是非常大的，这意味着这段时间用户无法访问应用。因此，在写代码的时候，从源头开始注意各种细节，权衡并使用最优的选择，将会很大程度上避免出现未知的错误，从长远看也极大的降低了工作量。</p>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/08/29/java代码优化/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/08/11/scheme实现一个简易版scheme解释器-所谓自举/" itemprop="url">
                   scheme实现一个简易版scheme解释器(所谓自举)
                 </a>
@@ -874,7 +999,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">25</span>
+              <span class="site-state-item-count">26</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
